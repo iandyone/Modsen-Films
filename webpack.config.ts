@@ -8,6 +8,11 @@ export default (env: BuildEnv): webpack.Configuration => {
   const PORT = env.port || 3300;
   const alias = {
     '@components': path.resolve(__dirname, 'src', 'components'),
+    '@assets': path.resolve(__dirname, 'src', 'assets'),
+    '@constants': path.resolve(__dirname, 'src', 'constants'),
+    '@store': path.resolve(__dirname, 'src', 'constants'),
+    '@styles': path.resolve(__dirname, 'src', 'styles'),
+    '@utils': path.resolve(__dirname, 'src', 'utils'),
   };
 
   const options: BuildOptions = {
@@ -16,10 +21,10 @@ export default (env: BuildEnv): webpack.Configuration => {
     alias: alias,
     isDev: mode === 'development',
     paths: {
+      favicon: path.resolve(__dirname, 'src', 'assets', 'favicon.ico'),
+      html: path.resolve(__dirname, 'public', 'index.html'),
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'dist'),
-      html: path.resolve(__dirname, 'public', 'index.html'),
-      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     },
   };
 

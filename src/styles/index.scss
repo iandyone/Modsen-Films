@@ -1,0 +1,8 @@
+@import "@styles/nullstyle.scss";
+@import "@constants/styles.scss";
+
+.app {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+

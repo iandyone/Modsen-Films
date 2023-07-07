@@ -3,7 +3,7 @@ import { BuildOptions } from './types';
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
 import { buildDevServer } from './buildDevServer';
-import { BuildResolves } from './buildResolves';
+import { buildResolves } from './buildResolves';
 
 export function buildConfig(options: BuildOptions): Configuration {
   const { mode, isDev, paths } = options;
@@ -23,7 +23,7 @@ export function buildConfig(options: BuildOptions): Configuration {
     module: {
       rules: buildLoaders(options),
     },
-    resolve: BuildResolves(options),
+    resolve: buildResolves(options),
     devServer: isDev ? buildDevServer(options) : undefined,
   };
 }

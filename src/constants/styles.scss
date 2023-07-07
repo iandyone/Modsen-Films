@@ -1,0 +1,31 @@
+:root {
+    --font-family: "Roboto", "Arial";
+    --font-size-s: 14px;
+    --font-size-m: 16px;
+    --font-size-l: 18px;
+
+    --black: #000;
+    --white: #fff;
+    --dark: #2e3130;
+    --orange: #ff8a00;
+    --gray: #c4c4c4;
+    --purple: purple;
+}
+
+.app.dark {
+    --bg-color: var(--dark);
+    --text-color-main: var(--white);
+    --border-color: var(--gray);
+    --input-color: var(--white);
+    --main-color: var(--white);
+    --input-bg: var(--dark);
+}
+
+.app.light {
+    --bg-color: var(--white);
+    --text-color-main: var(--black);
+    --border-color: var(--gray);
+    --input-color: var(--white);
+    --main-color: var(--orange);
+    --input-bg: var(--white);
+}

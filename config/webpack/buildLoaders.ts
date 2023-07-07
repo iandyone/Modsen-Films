@@ -5,6 +5,12 @@ import { BuildOptions } from './types';
 export function buildLoaders(options: BuildOptions): RuleSetRule[] {
   const { isDev } = options;
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  };
+
   const cssLoader = {
     test: /\.scss$/i,
     use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -27,5 +33,5 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     },
   };
 
-  return [cssLoader, babelLoader, typescriptLoader];
+  return [svgLoader, cssLoader, babelLoader, typescriptLoader];
 }

@@ -1,10 +1,7 @@
 import ReactDOM from 'react-dom/client';
-import './style.scss';
+import '@styles/index.scss';
+import { App } from '@components/App';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
-root.render(
-  <>
-    <h1 className='test'>Hello, World!</h1>
-  </>
-);
+root.render(<App />);
