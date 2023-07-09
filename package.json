@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": "true",
   "scripts": {
-    "start": "webpack serve --open --env port=3013",
+    "start": "webpack serve --open --env port=3015",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "lint:fix": " eslint \"**/*.{ts,tsx}\" --fix",
@@ -43,8 +43,10 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "remove": "^0.1.5",
     "styled-components": "^6.0.2"
   },

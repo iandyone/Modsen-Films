@@ -1,14 +1,16 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Container, Switcher, Toggler } from './styled';
 import { Theme } from '@constants/types';
+import { useDispatchTyped, useSelectorTyped } from '@hooks/redux-hooks';
+import { setTheme } from '@reducers/app-config-slice';
 
 export const ThemeSwitcher: FC = () => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const { theme } = useSelectorTyped((store) => store.app);
+  const dispatch = useDispatchTyped();
 
   function handlerOnClick() {
-    const newTheme:Theme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.querySelector<HTMLDivElement>('.app').className = `app ${newTheme}`;
+    const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
+    dispatch(setTheme(newTheme));
   }
 
   return (

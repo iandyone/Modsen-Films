@@ -11,7 +11,13 @@ export const Button = styled.button<{ $options: TagButtonProps }>`
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 6px 15px;
   min-width: 52px;
-  font-size: 14px;
+  font-size: var(--font-size-s);
   color: ${(props) => props.$options.$color};
   background: ${(props) => props.$options.$background};
+  transition: var(--transition);
+
+  &:active {
+    transform: var(--button-pressed);
+    transition: var(--transition);
+  }
 `;

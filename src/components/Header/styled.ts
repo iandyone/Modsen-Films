@@ -1,5 +1,12 @@
 import { styled } from 'styled-components';
 
+export const AppContainer = styled.div`
+  max-width: 1440px;
+  padding: 0 16px;
+  margin: 0 auto;
+  overflow-x: hidden;
+`;
+
 export const HeaderBody = styled.div`
   height: 66px;
   display: flex;

@@ -13,3 +13,10 @@ export const Nav = styled.div`
   border-left: none;
   border-right: none;
 `;
+
+export const AppContainer = styled.div`
+  max-width: 1440px;
+  padding: 0 16px;
+  margin: 0 auto;
+  overflow-x: hidden;
+`;

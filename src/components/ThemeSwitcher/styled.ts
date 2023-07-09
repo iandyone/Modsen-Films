@@ -29,5 +29,5 @@ export const Toggler = styled.div<{ theme: Theme }>`
   left: -1px;
   top: -1px;
   transform: translateX(${(props) => (props.theme === 'light' ? '0' : '22px')});
-  transition: transform 0.2s ease;
+  transition: var(--transition);
 `;

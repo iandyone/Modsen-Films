@@ -15,9 +15,11 @@
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
       "@constants/*": ["./src/constants/*"],
-      "@store/*": ["./src/store/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/utils/hooks/*"],
+      "@store/*": ["./src/store/*"],
+      "@reducers/*": ["./src/store/reducers/*"]
     }
   },
   "ts-node": {
