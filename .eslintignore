@@ -3,4 +3,4 @@ public
 node_modules
 webpack.config.ts
 eslintrc.json
-types
+constants

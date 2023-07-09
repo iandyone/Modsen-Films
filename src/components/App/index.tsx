@@ -1,14 +1,13 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Header } from '@components/Header';
-import { Theme } from '@constants/types';
+import { Navbar } from '@components/Navbar';
 
 export const App: FC = () => {
-  const [theme, setTheme] = useState<Theme>('light');
-
   return (
     <>
-      <div className={`app ${theme}`}>
-        <Header />;
+      <div className={'app light'}>
+        <Header />
+        <Navbar/>
       </div>
     </>
   );

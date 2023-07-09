@@ -10,15 +10,7 @@
     --orange: #ff8a00;
     --gray: #c4c4c4;
     --purple: purple;
-}
-
-.app.dark {
-    --bg-color: var(--dark);
-    --text-color-main: var(--white);
-    --border-color: var(--gray);
-    --input-color: var(--white);
-    --main-color: var(--white);
-    --input-bg: var(--dark);
+    --gray2: #0000000f;
 }
 
 .app.light {
@@ -28,4 +20,23 @@
     --input-color: var(--white);
     --main-color: var(--orange);
     --input-bg: var(--white);
+
+    --tag-button-text: var(--black);
+    --tag-button-bg: var(--gray2);
+    --tag-button-text-active: var(--white);
+    --tag-button-bg-active: var(--black);
+}
+
+.app.dark {
+    --bg-color: var(--dark);
+    --text-color-main: var(--white);
+    --border-color: var(--gray);
+    --input-color: var(--white);
+    --main-color: var(--white);
+    --input-bg: var(--dark);
+
+    --tag-button-text: var(--black);
+    --tag-button-bg: var(--white);
+    --tag-button-text-active: var(--black);
+    --tag-button-bg-active: var(--gray);
 }

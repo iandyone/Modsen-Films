@@ -8,13 +8,6 @@ export const HeaderBody = styled.div`
   column-gap: 25px;
 `;
 
-export const Container = styled.div`
-  max-width: 1440px;
-  padding: 0 16px;
-  margin: 0 auto;
-  overflow-x: hidden;
-`;
-
 export const LogoElement = styled.div`
   display: flex;
   align-items: center;

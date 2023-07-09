@@ -6,9 +6,9 @@ export const ThemeSwitcher: FC = () => {
   const [theme, setTheme] = useState<Theme>('light');
 
   function handlerOnClick() {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme:Theme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    document.querySelector('.app').className = `app ${newTheme}`;
+    document.querySelector<HTMLDivElement>('.app').className = `app ${newTheme}`;
   }
 
   return (

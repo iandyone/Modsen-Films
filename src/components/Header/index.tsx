@@ -1,12 +1,13 @@
 import { FC } from 'react';
-import { Container, HeaderBody, LogoElement, LogoText } from './styled';
+import { HeaderBody, LogoElement, LogoText } from './styled';
 import { Search } from '@components/Search';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 import LogoIcon from '@assets/icons/logo.svg';
+import { AppContainer } from '@components/Styled components/AppContainer';
 
 export const Header: FC = () => {
   return (
-    <Container>
+    <AppContainer>
       <HeaderBody>
         <LogoElement>
           <LogoIcon />
@@ -15,6 +16,6 @@ export const Header: FC = () => {
         <Search />
         <ThemeSwitcher />
       </HeaderBody>
-    </Container>
+    </AppContainer>
   );
 };
