@@ -4,21 +4,22 @@
     --font-size-m: 16px;
     --font-size-l: 18px;
 
-    --transition: all .2s ease;
-    --button-pressed: scale(0.9);
-
     --black: #000;
     --white: #fff;
     --dark: #2e3130;
     --orange: #ff8a00;
     --gray: #c4c4c4;
-    --purple: purple;
     --gray2: #0000000f;
+    --gray3: rgba(0, 0, 0, 0.83);
+    --gray-svg: #6d6e76;
+
+    --transition: all 0.2s ease;
+    --button-pressed: scale(0.9);
 }
 
 .app.light {
     --bg-color: var(--white);
-    --text-color-main: var(--black);
+    --text-color: var(--black);
     --border-color: var(--gray);
     --input-color: var(--white);
     --main-color: var(--orange);
@@ -28,11 +29,15 @@
     --tag-button-bg: var(--gray2);
     --tag-button-text-active: var(--white);
     --tag-button-bg-active: var(--black);
+
+    --footer-company: var(--gray);
+    --footer-text: var(--gray3);
+    --footer-svg: var(--gray-svg);
 }
 
 .app.dark {
     --bg-color: var(--dark);
-    --text-color-main: var(--white);
+    --text-color: var(--white);
     --border-color: var(--gray);
     --input-color: var(--white);
     --main-color: var(--white);
@@ -42,4 +47,8 @@
     --tag-button-bg: var(--white);
     --tag-button-text-active: var(--black);
     --tag-button-bg-active: var(--gray);
+
+    --footer-company: var(--white);
+    --footer-text: var(--white);
+    --footer-svg: var(--white);
 }

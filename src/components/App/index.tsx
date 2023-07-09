@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Header } from '@components/Header';
 import { Navbar } from '@components/Navbar';
+import { Footer } from '@components/Footer';
 import { useSelectorTyped } from '@hooks/redux-hooks';
 
 export const App: FC = () => {
@@ -10,6 +11,7 @@ export const App: FC = () => {
     <div className={`app ${theme}`}>
       <Header />
       <Navbar />
+      <Footer />
     </div>
   );
 };

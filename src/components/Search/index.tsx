@@ -18,7 +18,7 @@ export const Search: FC = () => {
     <SearchForm onSubmit={onSubmit}>
       <Input value={value} onChange={handlerOnChange} />
       <SearchButton>
-        <SearchIcon fill='var(--text-color-main)' />
+        <SearchIcon fill='var(--text-color)' />
       </SearchButton>
     </SearchForm>
   );

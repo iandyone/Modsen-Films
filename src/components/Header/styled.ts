@@ -23,7 +23,7 @@ export const LogoElement = styled.div`
 `;
 
 export const LogoText = styled.p`
-  color: var(--text-color-main);
+  color: var(--text-color);
   font-family: Roboto;
   font-weight: bold;
 `;

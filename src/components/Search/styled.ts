@@ -10,7 +10,7 @@ export const Input = styled.input.attrs({
   padding: 5px 15px;
   border: 1px solid var(--border-color);
   background: var(--input-bg);
-  color: var(--text-color-main);
+  color: var(--text-color);
 
   &::-webkit-input-placeholder {
     color: var(--border-color);
