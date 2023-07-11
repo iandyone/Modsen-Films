@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const MovieCardElement = styled.div`
   // border: 1px solid red;
-  min-height: 284px;
+  // min-height: 284px;
 `;
 
 export const Picture = styled.img.attrs((props) => ({
@@ -11,6 +11,10 @@ export const Picture = styled.img.attrs((props) => ({
 }))`
   width: 100%;
   max-height: 186px;
+
+  @media(max-width: 480px) {
+    max-height: none;
+  }
 `;
 
 export const Content = styled.div`
@@ -41,9 +45,11 @@ export const Title = styled.h3`
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
+  transition: var(--transition);
 `;
 
 export const Text = styled.p`
   font-size: 14px;
-  color: var(--text-color)
+  color: var(--text-color);
+  transition: var(--transition);
 `;

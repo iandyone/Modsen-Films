@@ -1,20 +1,24 @@
 import { FC } from 'react';
-import { AppContainer, HeaderBody, LogoElement, LogoText } from './styled';
+import { AppContainer, Body, Logo, Text, Theme } from './styled';
 import { Search } from '@components/Search';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 import LogoIcon from '@assets/icons/logo.svg';
+import { Menu } from '@components/BurgerMenu';
 
 export const Header: FC = () => {
   return (
     <AppContainer>
-      <HeaderBody>
-        <LogoElement>
+      <Body>
+        <Logo>
           <LogoIcon />
-          <LogoText>ModsenFilms</LogoText>
-        </LogoElement>
+          <Text>ModsenFilms</Text>
+        </Logo>
         <Search />
-        <ThemeSwitcher />
-      </HeaderBody>
+        <Theme>
+          <ThemeSwitcher />
+        </Theme>
+        <Menu />
+      </Body>
     </AppContainer>
   );
 };

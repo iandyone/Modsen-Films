@@ -19,7 +19,8 @@
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/utils/hooks/*"],
       "@store/*": ["./src/store/*"],
-      "@reducers/*": ["./src/store/reducers/*"]
+      "@reducers/*": ["./src/store/reducers/*"],
+      "@pages/*": ["./src/pages/*"]
     }
   },
   "ts-node": {

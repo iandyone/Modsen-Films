@@ -2,18 +2,13 @@ import { Theme } from '@constants/types';
 import styled from 'styled-components';
 
 export const Switcher = styled.div`
-  min-width: 144px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-export const Container = styled.div`
   width: 50px;
   height: 28px;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   border: 2px solid var(--main-color);
   border-radius: 28px;
   position: relative;
+  transition(--transition);
 
   &:hover {
     cursor: pointer;

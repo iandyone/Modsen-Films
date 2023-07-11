@@ -4,10 +4,10 @@ import InstagramIcon from '@assets/icons/instagram.svg';
 import LinkedinIcon from '@assets/icons/linkedin.svg';
 import TwitterIcon from '@assets/icons/twitter.svg';
 import { ISocialMedia, SocialMedia } from '@constants/types';
-import { About, AppContainer, ContentColumn, FooterBody, FooterContent, FooterElement, FooterLinks, Link, Text } from './styled';
+import { About, AppContainer, Column, Body, Content, FooterElement, Link, Links, Media } from './styled';
 
 export const Footer: FC = () => {
-  const footerLogos: ISocialMedia[] = [
+  const mediaData: ISocialMedia[] = [
     {
       name: 'facebook',
       url: SocialMedia.FACEBOOK,
@@ -15,7 +15,7 @@ export const Footer: FC = () => {
     },
     {
       name: 'twitter',
-      url: SocialMedia.TWITTER,
+      url: SocialMedia.WEBSITE,
       icon: TwitterIcon,
     },
     {
@@ -33,29 +33,29 @@ export const Footer: FC = () => {
   return (
     <FooterElement>
       <AppContainer>
-        <FooterBody>
-          <FooterContent>
-            <ContentColumn>
-              <Text>Terms Privacy Policy & Safety</Text>
-              <Text>How YouTube works</Text>
-              <Text>Test new features</Text>
-            </ContentColumn>
-            <ContentColumn>
-              <Text>About Press Copyright</Text>
-              <Text> Contact us Creators</Text>
-              <Text> Advertise Developers</Text>
-            </ContentColumn>
-          </FooterContent>
-          <FooterLinks>
-            {Array.from(footerLogos).map((media) => (
+        <Body>
+          <Content>
+            <Column>
+              <Link>Terms Privacy Policy & Safety</Link>
+              <Link>How YouTube works</Link>
+              <Link>Test new features</Link>
+            </Column>
+            <Column>
+              <Link>About Press Copyright</Link>
+              <Link> Contact us Creators</Link>
+              <Link> Advertise Developers</Link>
+            </Column>
+          </Content>
+          <Links>
+            {Array.from(mediaData).map((media) => (
               <li key={media.name}>
-                <Link href={media.url}>
+                <Media href={media.url}>
                   <media.icon fill={'var(--footer-svg)'} />
-                </Link>
+                </Media>
               </li>
             ))}
-          </FooterLinks>
-        </FooterBody>
+          </Links>
+        </Body>
         <About>2023 Modsen company</About>
       </AppContainer>
     </FooterElement>

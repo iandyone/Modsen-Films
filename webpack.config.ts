@@ -15,6 +15,7 @@ export default (env: BuildEnv): webpack.Configuration => {
     '@hooks': path.resolve(__dirname, 'src', 'utils', 'hooks'),
     '@store': path.resolve(__dirname, 'src', 'store'),
     '@reducers': path.resolve(__dirname, 'src', 'store', 'reducers'),
+    '@pages': path.resolve(__dirname, 'src', 'pages'),
   };
 
   const options: BuildOptions = {

@@ -36,7 +36,7 @@ export enum MovieGenres {
 export enum SocialMedia {
   FACEBOOK = 'https://www.facebook.com/ModsenSoftware',
   INSTAGRAM = 'https://www.instagram.com/modsencompany',
-  TWITTER = 'https://www.modsen-software.com',
+  WEBSITE = 'https://www.modsen-software.com',
   LINKEDIN = 'https://www.linkedin.com/company/modsen',
 }
 

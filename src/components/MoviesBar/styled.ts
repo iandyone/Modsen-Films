@@ -12,6 +12,10 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 700px) {
+    padding: 28px 20px 40px 20px;
+  }
 `;
 
 export const Body = styled.div`
@@ -21,6 +25,19 @@ export const Body = styled.div`
   column-gap: 20px;
   row-gap: 30px;
   margin-bottom: 38px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Button = styled.button`
@@ -39,5 +56,17 @@ export const Button = styled.button`
   &:active {
     transform: var(--button-pressed);
     transition: var(--transition);
+  }
+
+  @media (max-width: 992px) {
+    font-size: var(--font-size-m);
+    height: 44px;
+    width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: var(--font-size-m);
+    height: 36px;
+    width: 200px;
   }
 `;

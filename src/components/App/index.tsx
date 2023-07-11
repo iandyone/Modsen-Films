@@ -8,7 +8,6 @@ import { Footer } from '@components/Footer';
 
 export const App: FC = () => {
   const { theme } = useSelectorTyped((store) => store.app);
-
   return (
     <div className={`app ${theme}`}>
       <Header />

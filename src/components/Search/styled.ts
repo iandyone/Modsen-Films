@@ -11,9 +11,14 @@ export const Input = styled.input.attrs({
   border: 1px solid var(--border-color);
   background: var(--input-bg);
   color: var(--text-color);
+  transition: var(--transition);
 
   &::-webkit-input-placeholder {
     color: var(--border-color);
+  }
+
+  @media(max-width: 992px) {
+    max-width: auto;
   }
 `;
 
@@ -34,4 +39,5 @@ export const SearchButton = styled.button.attrs({
   justify-content: center;
   align-items: center;
   background-color: var(--input-bg);
+  transition: var(--transition);
 `;
