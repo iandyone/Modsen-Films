@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import FacebookLogo from '@assets/icons/facebook.svg';
-import InstagramLogo from '@assets/icons/instagram.svg';
-import LinkedinLogo from '@assets/icons/linkedin.svg';
-import TwitterLogo from '@assets/icons/twitter.svg';
+import FacebookIcon from '@assets/icons/facebook.svg';
+import InstagramIcon from '@assets/icons/instagram.svg';
+import LinkedinIcon from '@assets/icons/linkedin.svg';
+import TwitterIcon from '@assets/icons/twitter.svg';
 import { ISocialMedia, SocialMedia } from '@constants/types';
 import { About, AppContainer, ContentColumn, FooterBody, FooterContent, FooterElement, FooterLinks, Link, Text } from './styled';
 
@@ -11,22 +11,22 @@ export const Footer: FC = () => {
     {
       name: 'facebook',
       url: SocialMedia.FACEBOOK,
-      icon: FacebookLogo,
-    },
-    {
-      name: 'instagram',
-      url: SocialMedia.INSTAGRAM,
-      icon: InstagramLogo,
-    },
-    {
-      name: 'linkedin',
-      url: SocialMedia.LINKEDIN,
-      icon: LinkedinLogo,
+      icon: FacebookIcon,
     },
     {
       name: 'twitter',
       url: SocialMedia.TWITTER,
-      icon: TwitterLogo,
+      icon: TwitterIcon,
+    },
+    {
+      name: 'instagram',
+      url: SocialMedia.INSTAGRAM,
+      icon: InstagramIcon,
+    },
+    {
+      name: 'linkedin',
+      url: SocialMedia.LINKEDIN,
+      icon: LinkedinIcon,
     },
   ];
 

@@ -7,6 +7,7 @@
     --black: #000;
     --white: #fff;
     --dark: #2e3130;
+    // --dark: #0f0f0f;
     --orange: #ff8a00;
     --gray: #c4c4c4;
     --gray2: #0000000f;
@@ -30,6 +31,8 @@
     --tag-button-text-active: var(--white);
     --tag-button-bg-active: var(--black);
 
+    --button-bg: var(--orange);
+
     --footer-company: var(--gray);
     --footer-text: var(--gray3);
     --footer-svg: var(--gray-svg);
@@ -47,6 +50,8 @@
     --tag-button-bg: var(--white);
     --tag-button-text-active: var(--black);
     --tag-button-bg-active: var(--gray);
+
+    --button-bg: var(--orange);
 
     --footer-company: var(--white);
     --footer-text: var(--white);

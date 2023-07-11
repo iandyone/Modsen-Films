@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { Header } from '@components/Header';
 import { Navbar } from '@components/Navbar';
-import { Footer } from '@components/Footer';
 import { useSelectorTyped } from '@hooks/redux-hooks';
+import { Main } from './styled';
+import { MovieBar } from '@components/MoviesBar';
+import { Footer } from '@components/Footer';
 
 export const App: FC = () => {
   const { theme } = useSelectorTyped((store) => store.app);
@@ -11,6 +13,9 @@ export const App: FC = () => {
     <div className={`app ${theme}`}>
       <Header />
       <Navbar />
+      <Main>
+        <MovieBar />
+      </Main>
       <Footer />
     </div>
   );

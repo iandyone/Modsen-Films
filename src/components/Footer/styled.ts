@@ -5,7 +5,7 @@ export const AppContainer = styled.div`
   padding: 0 16px;
   margin: 0 auto;
   overflow-x: hidden;
-  padding: 54px 44px 94px;
+  padding: 54px 44px 18px;
 `;
 
 export const FooterElement = styled.footer`

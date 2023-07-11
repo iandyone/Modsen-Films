@@ -6,3 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   overflow-x: hidden;
 `;
+
+export const Main = styled.main`
+  flex: 1 1 auto;
+`;

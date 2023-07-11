@@ -5,6 +5,7 @@ export const AppContainer = styled.div`
   padding: 0 16px;
   margin: 0 auto;
   overflow-x: hidden;
+  width: 100%;
 `;
 
 export const HeaderBody = styled.div`
