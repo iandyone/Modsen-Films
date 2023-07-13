@@ -1,8 +1,14 @@
-import { styled } from 'styled-components';
+import { styled, css, keyframes } from 'styled-components';
+import '@styles/index.scss';
 
-export const MovieCardElement = styled.div`
-  // border: 1px solid red;
-  // min-height: 284px;
+export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
+  ${(props) =>
+    props.$isLoading &&
+    css`
+      position: relative;
+      top: -48px;
+    `}
+    // min-height: 284px;
 `;
 
 export const Picture = styled.img.attrs((props) => ({
@@ -12,7 +18,7 @@ export const Picture = styled.img.attrs((props) => ({
   width: 100%;
   max-height: 186px;
 
-  @media(max-width: 480px) {
+  @media (max-width: 480px) {
     max-height: none;
   }
 `;

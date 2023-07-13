@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 export const MovieBarElement = styled.section`
   height: 100%;
 `;
+
+
 export const AppContainer = styled.div`
   max-width: 1440px;
   padding: 28px 16px 40px 16px;
@@ -25,6 +27,7 @@ export const Body = styled.div`
   column-gap: 20px;
   row-gap: 30px;
   margin-bottom: 38px;
+  width: 100%;
 
   @media (max-width: 992px) {
     grid-template-columns: repeat(3, minmax(100px, 1fr));

@@ -2,10 +2,10 @@ import { FC, useCallback } from 'react';
 import { Button } from './styled';
 import { ITagButton, TagButtonProps } from '@constants/types';
 import { useDispatchTyped, useSelectorTyped } from '@hooks/redux-hooks';
-import { setSearchTag } from '@reducers/app-config-slice';
+import { setSearchTag } from '@store/reducers/movie-slice';
 
 export const TagButton: FC<ITagButton> = ({ tag }) => {
-  const { activeTag } = useSelectorTyped((store) => store.app);
+  const { activeTag } = useSelectorTyped((store) => store.movies);
   const isButtonActive = activeTag === tag;
   const dispatch = useDispatchTyped();
 

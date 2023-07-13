@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Switcher, Toggler } from './styled';
 import { Theme } from '@constants/types';
 import { useDispatchTyped, useSelectorTyped } from '@hooks/redux-hooks';
-import { setTheme } from '@reducers/app-config-slice';
+import { setTheme } from '@store/reducers/app-slice';
 
 export const ThemeSwitcher: FC = () => {
   const { theme } = useSelectorTyped((store) => store.app);

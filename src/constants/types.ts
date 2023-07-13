@@ -1,4 +1,4 @@
-import React, { ComponentType, ReactElement, ReactNode, SVGProps } from 'react';
+import { ComponentType, SVGProps } from 'react';
 
 export enum SearchTags {
   ALL = 'all',
@@ -8,6 +8,11 @@ export enum SearchTags {
   ROMANTIC = 'romantic',
   HORROR = 'horror',
   DOCUMENTARY = 'documentary',
+}
+
+export enum Languages {
+  RUSSIAN = 'ru',
+  ENGLISH = 'en',
 }
 
 export enum MovieGenres {
@@ -55,4 +60,22 @@ export interface ISocialMedia {
   name: string;
   icon: ComponentType<SVGProps<SVGAElement>>;
   url: string;
+}
+
+export interface IMovie {
+  id: number;
+  genre_ids: MovieGenres;
+  title: string;
+  overview: string;
+  backdrop_path: string;
+  // poster_path: string;
+  original_language: string;
+  original_title: string;
+  video: boolean;
+  release_date: string;
+}
+
+export interface IMovieResponce {
+  page: number;
+  results: IMovie[];
 }

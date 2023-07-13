@@ -33,7 +33,7 @@
     "comma-spacing": "error",
     "no-unused-vars": "warn",
     "no-multiple-empty-lines": "error",
-    "no-console": "warn",
+    // "no-console": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }

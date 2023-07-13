@@ -8,3 +8,13 @@
     flex-direction: column;
     transition: var(--transition);
 }
+
+
+@keyframes shimmer {
+    from {
+        background-position: 120%, 120%;
+    }
+    to {
+        background-position: 0, 0;
+    }
+}

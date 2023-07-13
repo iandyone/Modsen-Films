@@ -1,5 +1,5 @@
-import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types';
 
 export function buildLoaders(options: BuildOptions): RuleSetRule[] {
@@ -33,5 +33,19 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     },
   };
 
-  return [svgLoader, cssLoader, babelLoader, typescriptLoader];
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    loader: 'file-loader',
+    options: {
+      name() {
+        if (options.isDev) {
+          return '[path][name].[ext]';
+        }
+
+        return '[contenthash].[ext]';
+      },
+      outputPath: 'assets',
+    },
+  };
+  return [fileLoader, svgLoader, cssLoader, babelLoader, typescriptLoader];
 }
