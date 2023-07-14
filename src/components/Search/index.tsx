@@ -1,22 +1,28 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { ChangeEvent, FC, FormEvent } from 'react';
 import { Input, SearchButton, SearchForm } from './styled';
+import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
+import { clearMovies, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
 import SearchIcon from '@assets/icons/search.svg';
 
 export const Search: FC = () => {
-  const [value, setValue] = useState('');
+  const { title } = useSelectorTyped((store) => store.movies);
+  const dispatch = useDispatchTyped();
 
   function handlerOnChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
+    dispatch(setTitle(e.target.value));
   }
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
-    alert(value);
+    dispatch(setMoviesPage(1));
+    dispatch(clearMovies());
+    dispatch(setSearchTag('ALL'));
+    dispatch(setSearchTitle(title));
     e.preventDefault();
   }
 
   return (
     <SearchForm onSubmit={onSubmit}>
-      <Input value={value} onChange={handlerOnChange} />
+      <Input value={title} onChange={handlerOnChange} />
       <SearchButton>
         <SearchIcon fill='var(--text-color)' />
       </SearchButton>

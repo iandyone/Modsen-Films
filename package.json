@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": "true",
   "scripts": {
-    "start": "webpack serve --open --env port=3015",
+    "start": "webpack serve --open --env port=5000",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "lint:fix": " eslint \"**/*.{ts,tsx}\" --fix",

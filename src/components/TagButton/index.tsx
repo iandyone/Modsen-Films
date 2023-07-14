@@ -1,12 +1,12 @@
-import { FC, useCallback } from 'react';
+import { FC, MouseEvent } from 'react';
 import { Button } from './styled';
 import { ITagButton, TagButtonProps } from '@constants/types';
 import { useDispatchTyped, useSelectorTyped } from '@hooks/redux-hooks';
-import { setSearchTag } from '@store/reducers/movie-slice';
+import { clearFilters, setSearchTag } from '@store/reducers/movie-slice';
 
 export const TagButton: FC<ITagButton> = ({ tag }) => {
-  const { activeTag } = useSelectorTyped((store) => store.movies);
-  const isButtonActive = activeTag === tag;
+  const { searchByTag } = useSelectorTyped((store) => store.movies);
+  const isButtonActive = searchByTag === tag;
   const dispatch = useDispatchTyped();
 
   const buttonOptions: TagButtonProps = {
@@ -14,13 +14,19 @@ export const TagButton: FC<ITagButton> = ({ tag }) => {
     $color: isButtonActive ? 'var(--tag-button-text-active)' : 'var(--tag-button-text)',
   };
 
-  const handlerOnClock = useCallback(() => {
-    dispatch(setSearchTag(tag));
-  }, [dispatch, tag]);
+  function handlerOnClick(e: MouseEvent<HTMLButtonElement>) {
+    dispatch(clearFilters());
+
+    if (tag !== 'ALL' && !isButtonActive) {
+      dispatch(setSearchTag(tag));
+    }
+
+    e.preventDefault();
+  }
 
   return (
-    <Button $options={buttonOptions} onClick={handlerOnClock}>
-      {tag}
+    <Button $options={buttonOptions} onClick={handlerOnClick}>
+      {tag.toLocaleLowerCase()}
     </Button>
   );
 };

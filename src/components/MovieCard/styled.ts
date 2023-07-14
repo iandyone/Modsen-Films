@@ -1,4 +1,4 @@
-import { styled, css, keyframes } from 'styled-components';
+import { styled, css } from 'styled-components';
 import '@styles/index.scss';
 
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
@@ -7,8 +7,7 @@ export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
     css`
       position: relative;
       top: -48px;
-    `}
-    // min-height: 284px;
+    `}// min-height: 284px;
 `;
 
 export const Picture = styled.img.attrs((props) => ({
@@ -38,6 +37,9 @@ export const Avatar = styled.img.attrs((props) => ({
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 `;
 
 export const Description = styled.div`

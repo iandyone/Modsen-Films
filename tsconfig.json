@@ -20,7 +20,8 @@
       "@hooks/*": ["./src/utils/hooks/*"],
       "@store/*": ["./src/store/*"],
       "@reducers/*": ["./src/store/reducers/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@config/*": ["./config/*"],
     }
   },
   "ts-node": {

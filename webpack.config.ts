@@ -3,6 +3,9 @@ import path from 'path';
 import { BuildEnv, BuildMode, BuildOptions } from './config/webpack/types';
 import { buildConfig } from './config/webpack/buildConfig';
 
+// replace accordingly './.env' with the path of your .env file
+// require('dotenv').config({ path: './.env' });
+
 export default (env: BuildEnv): webpack.Configuration => {
   const mode: BuildMode = env.mode || 'development';
   const PORT = env.port || 3300;
@@ -16,6 +19,7 @@ export default (env: BuildEnv): webpack.Configuration => {
     '@store': path.resolve(__dirname, 'src', 'store'),
     '@reducers': path.resolve(__dirname, 'src', 'store', 'reducers'),
     '@pages': path.resolve(__dirname, 'src', 'pages'),
+    '@config': path.resolve(__dirname, 'config'),
   };
 
   const options: BuildOptions = {

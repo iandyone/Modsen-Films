@@ -1,42 +1,37 @@
 import { ComponentType, SVGProps } from 'react';
 
-export enum SearchTags {
-  ALL = 'all',
-  ACTION = 'action',
-  DRAMA = 'drama',
-  CRIME = 'crime',
-  ROMANTIC = 'romantic',
-  HORROR = 'horror',
-  DOCUMENTARY = 'documentary',
-}
-
 export enum Languages {
   RUSSIAN = 'ru',
   ENGLISH = 'en',
 }
 
 export enum MovieGenres {
+  ALL = 0,
   ACTION = 28,
   DRAMA = 18,
   CRIME = 80,
   ADVENTURE = 12,
   ROMANCE = 10749,
   HORROR = 27,
+  DOCUMENTARY = 99
+
   /* unused */
-  DOCUMENTARY = 99,
-  ANIMATION = 16,
-  COMEDY = 35,
-  FAMILY = 10751,
-  FANTASY = 14,
-  HISTORY = 36,
-  MUSIC = 10402,
-  MYSTERY = 9648,
-  SCIENCEfICTION = 878,
-  TvmOVIE = 10770,
-  THRILLER = 53,
-  WAR = 10752,
-  WESTERN = 37,
+
+  // ANIMATION = 16,
+  // COMEDY = 35,
+  // FAMILY = 10751,
+  // FANTASY = 14,
+  // HISTORY = 36,
+  // MUSIC = 10402,
+  // MYSTERY = 9648,
+  // SCIENCEfICTION = 878,
+  // TvmOVIE = 10770,
+  // THRILLER = 53,
+  // WAR = 10752,
+  // WESTERN = 37,
 }
+
+export type IGenre = keyof typeof MovieGenres;
 
 export enum SocialMedia {
   FACEBOOK = 'https://www.facebook.com/ModsenSoftware',
@@ -48,7 +43,7 @@ export enum SocialMedia {
 export type Theme = 'light' | 'dark';
 
 export interface ITagButton {
-  tag: SearchTags;
+  tag: IGenre;
 }
 
 export interface TagButtonProps {

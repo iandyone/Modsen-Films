@@ -1,11 +1,16 @@
-import { IMovie, IMovieResponce, Languages, MovieGenres } from '@constants/types';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { axiosBaseQuery } from '@config/axios';
+import { IMovieResponce, Languages, MovieGenres } from '@constants/types';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
-const baseUrl = 'https://api.themoviedb.org/3';
-// ''https://api.themoviedb.org/3/discover/movie?'
-// https://api.themoviedb.org/3/discover/movie?api_key=YOUR_API_KEY&append_to_response=credits
+export interface IFindMovieByTitleParams {
+  query: string;
+  page: number;
+}
 
-const API_KEY = 'a10b3394e18fff40e8bda125df9dfca0';
+export interface IFindMovieByGenreParams {
+  genre: number;
+  page: number;
+}
 
 export interface IGetMovieParams {
   page: number;
@@ -14,28 +19,41 @@ export interface IGetMovieParams {
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
-  baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+  baseQuery: axiosBaseQuery,
   endpoints: (build) => ({
     getMovies: build.query<IMovieResponce, IGetMovieParams>({
       query: ({ page }) => ({
-        url: '/discover/movie',
-        // url: '/movie/now_playing',
+        // url: '/discover/movie',
         // url: '/movie/top_rated',
+        url: '/movie/now_playing',
         method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTBiMzM5NGUxOGZmZjQwZThiZGExMjVkZjlkZmNhMCIsInN1YiI6IjY0YWJhYzg0NmEzNDQ4MDEwYjcxMDc1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2-9apDAnB9If9OEtvOWFYg5y0dlDK-pb-JbNb7a8mWQ',
-        },
         params: {
-          // append_to_response: 'credits',
           page: page,
           language: Languages.ENGLISH,
-          api_key: API_KEY,
+        },
+      }),
+    }),
+    findMoviesByTitle: build.query<IMovieResponce, IFindMovieByTitleParams>({
+      query: ({ page, query }) => ({
+        url: '/search/movie',
+        method: 'GET',
+        params: {
+          page,
+          query,
+        },
+      }),
+    }),
+    findMoviesByGenre: build.query<IMovieResponce, IFindMovieByGenreParams>({
+      query: ({ page, genre }) => ({
+        url: '/discover/movie',
+        method: 'GET',
+        params: {
+          page,
+          with_genres: genre,
         },
       }),
     }),
   }),
 });
 
-
-export const { useGetMoviesQuery } = movieApi;
+export const { useGetMoviesQuery, useFindMoviesByTitleQuery, useFindMoviesByGenreQuery } = movieApi;

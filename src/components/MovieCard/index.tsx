@@ -10,8 +10,8 @@ interface IMovieCardProps {
 }
 
 export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
-  const { title, release_date, backdrop_path: posterURL } = movieData;
   const posterBaseURL = 'http://image.tmdb.org/t/p/w780';
+  const { title, release_date, backdrop_path: posterURL } = movieData;
   const releaseDate = release_date && release_date.slice(0, 4);
   const poster = posterURL ? posterBaseURL + posterURL : NotFoundPlaceholder;
 
@@ -27,7 +27,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
     <MovieCardElement>
       <Picture src={poster}></Picture>
       <Content>
-        <Avatar src='https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg' />
+        <Avatar src={poster} />
         <Description>
           <Title>{title}</Title>
           <Text>{releaseDate}</Text>

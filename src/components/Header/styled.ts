@@ -33,7 +33,8 @@ export const Logo = styled.div`
   column-gap: 6px;
   min-width: 144px;
 
-  @media (max-width: 600px) {
+  &:hover {
+    cursor: pointer;
   }
 `;
 
