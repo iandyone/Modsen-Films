@@ -1,9 +1,8 @@
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 export const MovieBarElement = styled.section`
   height: 100%;
 `;
-
 
 export const AppContainer = styled.div`
   max-width: 1440px;
@@ -43,7 +42,7 @@ export const Body = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{ $isNextPage: boolean }>`
   color: var(--input-color);
   font-size: 22px;
   font-weight: bold;
@@ -55,6 +54,11 @@ export const Button = styled.button`
   background: var(--button-bg);
   border-radius: 10px;
   transition: var(--transition);
+
+  ${({ $isNextPage }) =>
+    !$isNextPage && css`
+      display: none;
+    `}
 
   &:active {
     transform: var(--button-pressed);

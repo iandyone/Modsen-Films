@@ -1,57 +1,69 @@
 import { MovieCard } from '@components/MovieCard';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { AppContainer, Body, Button, MovieBarElement } from './styled';
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
 import { MovieGenres } from '@constants/types';
 import { useFindMoviesByGenreQuery, useFindMoviesByTitleQuery, useGetMoviesQuery } from '@store/reducers/movie-api';
 import { addMovies, setMoviesPage } from '@store/reducers/movie-slice';
+import { ErrorPage } from '@pages/ErrorPage';
 
 export const MovieBar: FC = () => {
-  const { moviesPage, movies: currentMovies, searchByTitle, searchByTag, filter } = useSelectorTyped((store) => store.movies);
-  const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog } = useGetMoviesQuery({ page: moviesPage }, { skip: !!searchByTitle || searchByTag !== 'ALL' });
-  const { data: moviesByTitle, isFetching: isFetchingByTitle, isSuccess: isSuccessByTitle } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: !searchByTitle || searchByTag !== 'ALL' });
-  const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenres[searchByTag] }, { skip: Boolean(searchByTitle) || searchByTag === 'ALL' });
   const { filmsPerPage } = useSelectorTyped((store) => store.app);
+  const { moviesPage, movies, searchByTitle, searchByTag, filter } = useSelectorTyped((store) => store.movies);
+  const { skipBase, skipTitle, skipGenre } = getFetchSkipConditions();
+  const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
+  const { data: moviesByTitle, isFetching: isFetchingByTitle, isSuccess: isSuccessByTitle } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: skipTitle });
+  const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenres[searchByTag] }, { skip: skipGenre });
+  const [isNextPage, setIsNextPage] = useState(true);
 
   const dispatch = useDispatchTyped();
   const movieLoader = new Array(filmsPerPage).fill({});
-  const isLoader = isFetchingCatalog || isFetchingByTitle || isFetchingByGenre || !currentMovies.length;
+  const isLoader = isFetchingCatalog || isFetchingByTitle || isFetchingByGenre;
 
   function handlerOnClick() {
     dispatch(setMoviesPage(moviesPage + 1));
   }
 
+  function getFetchSkipConditions() {
+    return {
+      skipBase: !!searchByTitle || searchByTag !== 'ALL',
+      skipTitle: !searchByTitle || searchByTag !== 'ALL',
+      skipGenre: !!searchByTitle || searchByTag === 'ALL',
+    };
+  }
+
   useEffect(() => {
-    if (isSuccessByGenre && filter === 'genre') {
-      dispatch(addMovies(moviesByGenre.results));
-      return;
-    }
+    const moviesData = getDisplayedMovies();
 
-    if (isSuccessByTitle && filter === 'title') {
-      dispatch(addMovies(moviesByTitle.results));
-      return;
-    }
-
-    if (isSuccessCatalog && filter === 'default') {
-      dispatch(addMovies(moviesCatalog.results));
-      return;
+    if (moviesData) {
+      dispatch(addMovies(moviesData.results));
+      setIsNextPage(moviesPage + 1 <= moviesData.total_pages);
     }
     //eslint-disable-next-line
   }, [moviesByTitle, moviesByGenre, moviesCatalog, dispatch, filter]);
 
+  function getDisplayedMovies() {
+    if (isSuccessCatalog && filter === 'default') return moviesCatalog;
+    if (isSuccessByTitle && filter === 'title') return moviesByTitle;
+    if (isSuccessByGenre && filter === 'genre') return moviesByGenre;
+  }
+
   return (
     <MovieBarElement>
       <AppContainer>
+        {movies.length === 0 && !isLoader && <ErrorPage message='There is no movies' />}
         <Body>
-          {currentMovies.map((movie, index) => {
-            return <MovieCard key={movie.id ?? index} isLoading={false} movieData={movie} />;
+          {movies.map((movie) => {
+            return <MovieCard key={movie.id} isLoading={false} movieData={movie} />;
           })}
           {isLoader &&
             movieLoader.map((movie, index) => {
               return <MovieCard key={index} isLoading={isLoader} movieData={movie} />;
             })}
         </Body>
-        <Button onClick={handlerOnClick}>Show More</Button>
+        <Button onClick={handlerOnClick} $isNextPage={isNextPage}>
+          Show More
+        </Button>
       </AppContainer>
     </MovieBarElement>
   );

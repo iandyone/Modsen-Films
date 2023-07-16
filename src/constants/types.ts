@@ -19,8 +19,8 @@ export enum MovieGenres {
 
   /* unused */
 
-  // ANIMATION = 16,
   // COMEDY = 35,
+  // ANIMATION = 16,
   // FAMILY = 10751,
   // FANTASY = 14,
   // HISTORY = 36,
@@ -75,4 +75,6 @@ export interface IMovie {
 export interface IMovieResponce {
   page: number;
   results: IMovie[];
+  total_pages: number;
+  total_results: number;
 }

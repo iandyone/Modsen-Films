@@ -2,7 +2,12 @@ import { FC } from 'react';
 import ErrorIcon from '@assets/icons/error.svg';
 import { Button, Container, Text } from './styled';
 
-export const ErrorPage: FC = () => {
+interface IErrorPage {
+  message: string;
+  withReloadingButton?: boolean;
+}
+
+export const ErrorPage: FC<IErrorPage> = ({ message, withReloadingButton = false }) => {
   function handlerOnClick() {
     location.reload();
   }
@@ -10,8 +15,8 @@ export const ErrorPage: FC = () => {
   return (
     <Container>
       <ErrorIcon />
-      <Text>Возникла непредвиденная ошибка во время работы приложения</Text>
-      <Button onClick={handlerOnClick}>Обновить</Button>
+      <Text>{message}</Text>
+      {withReloadingButton && <Button onClick={handlerOnClick}>Обновить</Button>}
     </Container>
   );
 };

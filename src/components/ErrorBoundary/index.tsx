@@ -15,7 +15,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
       // TODO: сделать error page
       return (
         <Suspense fallback=''>
-          <ErrorPage />
+          <ErrorPage message='Unexpected error while the application is running' withReloadingButton={true} />
         </Suspense>
       );
     }

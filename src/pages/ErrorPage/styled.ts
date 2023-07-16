@@ -1,14 +1,18 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.section`
-  height: 100vh;
+export const Container = styled.article`
   background: var(--bg-color);
-  transition: (--transoton);
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   row-gap: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const Text = styled.p`
