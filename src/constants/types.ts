@@ -5,6 +5,8 @@ export enum Languages {
   ENGLISH = 'en',
 }
 
+export type IFIlter = 'default' | 'title' | 'genre';
+
 export enum MovieGenres {
   ALL = 0,
   ACTION = 28,
@@ -13,7 +15,7 @@ export enum MovieGenres {
   ADVENTURE = 12,
   ROMANCE = 10749,
   HORROR = 27,
-  DOCUMENTARY = 99
+  DOCUMENTARY = 99,
 
   /* unused */
 

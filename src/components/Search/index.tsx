@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, FormEvent } from 'react';
 import { Input, SearchButton, SearchForm } from './styled';
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
-import { clearMovies, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
+import { clearMovies, setFilter, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
 import SearchIcon from '@assets/icons/search.svg';
 
 export const Search: FC = () => {
@@ -13,10 +13,11 @@ export const Search: FC = () => {
   }
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
+    dispatch(setSearchTitle(title));
     dispatch(setMoviesPage(1));
     dispatch(clearMovies());
     dispatch(setSearchTag('ALL'));
-    dispatch(setSearchTitle(title));
+    dispatch(setFilter('title'));
     e.preventDefault();
   }
 

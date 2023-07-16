@@ -1,20 +1,24 @@
-import { IGenre, IMovie } from '@constants/types';
+import { IFIlter, IGenre, IMovie } from '@constants/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface IMovieSliceProps {
   movies: IMovie[];
+  originals: IMovie[];
   moviesPage: number;
   searchByTag: IGenre;
   searchByTitle: string;
   title: string;
+  filter: IFIlter;
 }
 
 const initialState: IMovieSliceProps = {
   movies: [],
+  originals: [],
   moviesPage: 1,
   searchByTag: 'ALL',
   searchByTitle: '',
   title: '',
+  filter: 'default',
 };
 
 const movieSlice = createSlice({
@@ -46,8 +50,11 @@ const movieSlice = createSlice({
       state.moviesPage = initialState.moviesPage;
       state.movies = initialState.movies;
     },
+    setFilter(state, action: PayloadAction<IFIlter>) {
+      state.filter = action.payload;
+    },
   },
 });
 
 export default movieSlice.reducer;
-export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters } = movieSlice.actions;
+export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters, setFilter } = movieSlice.actions;
