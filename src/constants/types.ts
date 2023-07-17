@@ -65,7 +65,7 @@ export interface IMovie {
   title: string;
   overview: string;
   backdrop_path: string;
-  // poster_path: string;
+  poster_path: string;
   original_language: string;
   original_title: string;
   video: boolean;

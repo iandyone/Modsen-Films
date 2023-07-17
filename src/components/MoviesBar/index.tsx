@@ -61,7 +61,7 @@ export const MovieBar: FC = () => {
               return <MovieCard key={index} isLoading={isLoader} movieData={movie} />;
             })}
         </Body>
-        <Button onClick={handlerOnClick} $isNextPage={isNextPage}>
+        <Button onClick={handlerOnClick} $isNextPage={isNextPage && movies.length !== 0}>
           Show More
         </Button>
       </AppContainer>

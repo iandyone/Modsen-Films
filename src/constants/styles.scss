@@ -13,6 +13,7 @@
     --gray: #c4c4c4;
     --gray2: #0000000f;
     --gray3: rgba(0, 0, 0, 0.83);
+    --gray4: rgba(0, 0, 0, 0.08);
     --gray-svg: #6d6e76;
 
     --transition: all 0.3s ease;
@@ -26,6 +27,7 @@
     --input-color: var(--white);
     --main-color: var(--orange);
     --input-bg: var(--white);
+    --shadow-color: var(--gray4);
 
     --tag-button-text: var(--black);
     --tag-button-bg: var(--gray2);
@@ -48,6 +50,7 @@
     --input-color: var(--white);
     --main-color: var(--white);
     --input-bg: var(--dark);
+    --shadow-color: var(--gray4);
 
     --tag-button-text: var(--black);
     --tag-button-bg: var(--white);
@@ -56,7 +59,7 @@
 
     --button-bg: var(--orange);
 
-    --burger-bg: var(--dark); 
+    --burger-bg: var(--dark);
 
     --footer-company: var(--white);
     --footer-text: var(--white);

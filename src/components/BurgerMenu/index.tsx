@@ -25,7 +25,7 @@ export const Menu: FC = () => {
       </BurgerButton>
       <MenuContent $isOpen={isBurgerOpened}>
         <MenuOption>
-          <Text>{theme === 'dark' ? 'Темная' : 'Светлая'} тема </Text>
+          <Text>Theme {theme === 'dark' ? 'Dark' : 'Light'}</Text>
           <ThemeSwitcher />
         </MenuOption>
       </MenuContent>
