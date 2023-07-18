@@ -4,7 +4,6 @@ import { clearFilters, clearMovies, setFilter, setMoviesPage, setSearchTag, setS
 import { Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Title } from './styled';
 import { useFindMoviesByTitleQuery } from '@store/reducers/movie-api';
 import { useDebounce } from '@utils/hooks/useDebounce';
-import { Loader } from '@components/App/styled';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import SearchIcon from '@assets/icons/search.svg';
 import DefaultPoster from '@assets/no-poster.png';

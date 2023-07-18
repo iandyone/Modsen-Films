@@ -4,19 +4,23 @@ import '@styles/index.scss';
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
   transition: var(--transition);
 
-  &:hover {
-    box-shadow: 0px 4px 20px var(--shadow-color);
-    transform: scale(1.05);
-    cursor: pointer;
-    transition: var(--transition);
-  }
+  ${({ $isLoading }) =>
+    !$isLoading &&
+    css`
+      &:hover {
+        box-shadow: 0px 4px 20px var(--shadow-color);
+        transform: scale(1.05);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+    `}
 
   ${(props) =>
     props.$isLoading &&
     css`
       position: relative;
       top: -48px;
-    `}// min-height: 284px;
+    `} 
 `;
 
 export const Picture = styled.img.attrs((props) => ({

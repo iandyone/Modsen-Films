@@ -11,7 +11,3 @@ export const Main = styled.main`
   flex: 1 1 auto;
   position: relative;
 `;
-
-export const Loader = styled.span`
-  padding: 14px;
-`;

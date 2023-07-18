@@ -4,8 +4,8 @@ import { IMovie } from '@constants/types';
 import { useDispatchTyped } from '@utils/hooks/redux-hooks';
 import { setModalMenu } from '@store/reducers/app-slice';
 import { setMovieID } from '@store/reducers/movie-slice';
+import { SkeletonLoader } from '@components/Loader';
 import NotFoundPlaceholder from '@assets/not-found.png';
-import Loader from '@components/Loader';
 
 interface IMovieCardProps {
   movieData: IMovie;
@@ -27,7 +27,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
   if (isLoading) {
     return (
       <MovieCardElement $isLoading={isLoading}>
-        <Loader />
+        <SkeletonLoader />
       </MovieCardElement>
     );
   }
