@@ -3,9 +3,6 @@ import path from 'path';
 import { BuildEnv, BuildMode, BuildOptions } from './config/webpack/types';
 import { buildConfig } from './config/webpack/buildConfig';
 
-// replace accordingly './.env' with the path of your .env file
-// require('dotenv').config({ path: './.env' });
-
 export default (env: BuildEnv): webpack.Configuration => {
   const mode: BuildMode = env.mode || 'development';
   const PORT = env.port || 3300;

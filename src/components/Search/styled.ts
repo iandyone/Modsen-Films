@@ -47,7 +47,7 @@ export const SearchButton = styled.button.attrs({
     transition: var(--transition);
   }
 `;
-export const ElasticSearch = styled.div<{ $visible: boolean }>`
+export const ElasticSearch = styled.ul<{ $visible: boolean; $isLoading: boolean }>`
   display: none;
 
   ${({ $visible }) =>
@@ -62,10 +62,11 @@ export const ElasticSearch = styled.div<{ $visible: boolean }>`
 
       max-height: 450px;
       background: var(--input-bg);
-      padding-bottom: 14px;
+      padding: 14px 0px;
       overflow: auto;
 
       display: flex;
+
       flex-direction: column;
 
       color: var(--text-color);
@@ -73,6 +74,12 @@ export const ElasticSearch = styled.div<{ $visible: boolean }>`
       box-shadow: 0px 4px 12px var(--shadow-color);
       line-height: 18px;
       transition: var(--transition);
+    `}
+
+  ${({ $isLoading }) =>
+    $isLoading &&
+    css`
+      align-items: center;
     `}
 `;
 
@@ -82,6 +89,7 @@ export const Movie = styled.li`
   padding: 14px;
   transition: var(--transition);
   border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
 
   &:hover {
     box-shadow: 0px 4px 20px var(--shadow-color);
@@ -128,4 +136,5 @@ export const Overview = styled.p`
 
 export const Counter = styled.p`
   font-style: italic;
+  padding: 14px 14px 0px;
 `;

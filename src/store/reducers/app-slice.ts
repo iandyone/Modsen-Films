@@ -5,12 +5,14 @@ interface IConfigState {
   theme: Theme;
   filmsPerPage: number;
   isBurgerOpened: boolean;
+  isModalOpened: boolean;
 }
 
 const initialState: IConfigState = {
   theme: 'light',
   filmsPerPage: 16,
   isBurgerOpened: false,
+  isModalOpened: false,
 };
 
 const appSlice = createSlice({
@@ -24,8 +26,12 @@ const appSlice = createSlice({
     setBurgerMenu(state, action: PayloadAction<boolean>) {
       state.isBurgerOpened = action.payload ?? !state.isBurgerOpened;
     },
+
+    setModalMenu(state, action: PayloadAction<boolean>) {
+      state.isModalOpened = action.payload;
+    },
   },
 });
 
 export default appSlice.reducer;
-export const { setTheme, setBurgerMenu } = appSlice.actions;
+export const { setTheme, setBurgerMenu, setModalMenu } = appSlice.actions;

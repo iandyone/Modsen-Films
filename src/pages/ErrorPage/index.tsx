@@ -16,7 +16,7 @@ export const ErrorPage: FC<IErrorPage> = ({ message, withReloadingButton = false
     <Container>
       <ErrorIcon />
       <Text>{message}</Text>
-      {withReloadingButton && <Button onClick={handlerOnClick}>Обновить</Button>}
+      {withReloadingButton && <Button onClick={handlerOnClick}>Update</Button>}
     </Container>
   );
 };

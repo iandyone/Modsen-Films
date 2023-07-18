@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 const baseUrl = 'https://api.themoviedb.org/3';
-const apiKey = 'a10b3394e18fff40e8bda125df9dfca0';
 const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTBiMzM5NGUxOGZmZjQwZThiZGExMjVkZjlkZmNhMCIsInN1YiI6IjY0YWJhYzg0NmEzNDQ4MDEwYjcxMDc1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2-9apDAnB9If9OEtvOWFYg5y0dlDK-pb-JbNb7a8mWQ';
 
 const $axios = axios.create({
@@ -11,7 +10,6 @@ const $axios = axios.create({
 $axios.interceptors.request.use((config) => {
   config.headers['accept'] = 'application/json';
   config.headers['Authorization'] = `Bearer ${token}`;
-  config.params['API_KEY'] = apiKey;
   return config;
 });
 

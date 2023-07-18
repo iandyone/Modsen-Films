@@ -9,6 +9,7 @@ interface IMovieSliceProps {
   searchByTitle: string;
   title: string;
   filter: IFIlter;
+  movieID: number;
 }
 
 const initialState: IMovieSliceProps = {
@@ -19,6 +20,7 @@ const initialState: IMovieSliceProps = {
   searchByTitle: '',
   title: '',
   filter: 'default',
+  movieID: 0,
 };
 
 const movieSlice = createSlice({
@@ -53,8 +55,11 @@ const movieSlice = createSlice({
     setFilter(state, action: PayloadAction<IFIlter>) {
       state.filter = action.payload;
     },
+    setMovieID(state, action: PayloadAction<number>) {
+      state.movieID = action.payload;
+    },
   },
 });
 
 export default movieSlice.reducer;
-export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters, setFilter } = movieSlice.actions;
+export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters, setFilter, setMovieID } = movieSlice.actions;
