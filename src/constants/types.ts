@@ -7,6 +7,10 @@ export enum Languages {
 
 export type IFIlter = 'default' | 'title' | 'genre';
 
+export interface IBaseRequest {
+  page: number;
+}
+
 export enum MovieGenres {
   ALL = 0,
   ACTION = 28,
@@ -40,6 +44,16 @@ export enum SocialMedia {
   INSTAGRAM = 'https://www.instagram.com/modsencompany',
   WEBSITE = 'https://www.modsen-software.com',
   LINKEDIN = 'https://www.linkedin.com/company/modsen',
+}
+
+export enum VideoType {
+  TEASER = 'Teaser',
+  FEATURETTE = 'Featurette',
+  TRAILER = 'Trailer',
+}
+
+export enum VideoSource {
+  YOUTUBE = 'YouTube',
 }
 
 export type Theme = 'light' | 'dark';
@@ -77,4 +91,20 @@ export interface IMovieResponce {
   results: IMovie[];
   total_pages: number;
   total_results: number;
+}
+
+export interface IVideo {
+  id: number;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  size: number;
+  site: VideoSource;
+  type: VideoType;
+}
+
+export interface IVideoResponse {
+  id: number;
+  results: IVideo[];
 }

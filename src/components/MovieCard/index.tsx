@@ -1,8 +1,11 @@
 import { FC } from 'react';
 import { Avatar, Content, Description, MovieCardElement, Picture, Text, Title } from './styled';
 import { IMovie } from '@constants/types';
+import { useDispatchTyped } from '@utils/hooks/redux-hooks';
+import { setModalMenu } from '@store/reducers/app-slice';
+import { setMovieID } from '@store/reducers/movie-slice';
 import NotFoundPlaceholder from '@assets/not-found.png';
-import DoorDashFavorite from '@components/Loader';
+import Loader from '@components/Loader';
 
 interface IMovieCardProps {
   movieData: IMovie;
@@ -14,17 +17,23 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
   const { title, release_date, backdrop_path: posterURL } = movieData;
   const releaseDate = release_date && release_date.slice(0, 4);
   const poster = posterURL ? posterBaseURL + posterURL : NotFoundPlaceholder;
+  const dispatch = useDispatchTyped();
+
+  async function handlerOnClick() {
+    dispatch(setModalMenu(true));
+    dispatch(setMovieID(movieData.id));
+  }
 
   if (isLoading) {
     return (
       <MovieCardElement $isLoading={isLoading}>
-        <DoorDashFavorite />
+        <Loader />
       </MovieCardElement>
     );
   }
 
   return (
-    <MovieCardElement>
+    <MovieCardElement onClick={handlerOnClick}>
       <Picture src={poster}></Picture>
       <Content>
         <Avatar src={poster} />

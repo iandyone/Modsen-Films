@@ -1,20 +1,21 @@
 import { axiosBaseQuery } from '@config/axios';
-import { IMovieResponce, Languages, MovieGenres } from '@constants/types';
+import { IBaseRequest, IMovieResponce, IVideoResponse, Languages, MovieGenres } from '@constants/types';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-export interface IFindMovieByTitleParams {
+interface IFindMovieByTitleParams extends IBaseRequest {
   query: string;
-  page: number;
 }
 
-export interface IFindMovieByGenreParams {
+interface IFindMovieByGenreParams extends IBaseRequest {
   genre: number;
-  page: number;
 }
 
-export interface IGetMovieParams {
-  page: number;
+interface IGetMovieParams extends IBaseRequest {
   genre?: MovieGenres;
+}
+
+interface IGetVideoParams {
+  movieID: number;
 }
 
 export const movieApi = createApi({
@@ -23,13 +24,12 @@ export const movieApi = createApi({
   endpoints: (build) => ({
     getMovies: build.query<IMovieResponce, IGetMovieParams>({
       query: ({ page }) => ({
-        // url: '/discover/movie',
-        // url: '/movie/top_rated',
-        url: '/movie/now_playing',
+        url: '/discover/movie',
         method: 'GET',
         params: {
           page: page,
           language: Languages.ENGLISH,
+          include_video: true,
         },
       }),
     }),
@@ -40,6 +40,7 @@ export const movieApi = createApi({
         params: {
           page,
           query,
+          include_video: true,
         },
       }),
     }),
@@ -50,10 +51,19 @@ export const movieApi = createApi({
         params: {
           page,
           with_genres: genre,
+          include_video: true,
         },
+      }),
+    }),
+    getVideo: build.query<IVideoResponse, IGetVideoParams>({
+      query: ({ movieID }) => ({
+        url: `/movie/${movieID}/videos`,
+        method: 'GET',
       }),
     }),
   }),
 });
 
-export const { useGetMoviesQuery, useFindMoviesByTitleQuery, useFindMoviesByGenreQuery } = movieApi;
+export const { useGetMoviesQuery, useFindMoviesByTitleQuery, useFindMoviesByGenreQuery, useGetVideoQuery } = movieApi;
+
+//https://api.themoviedb.org/3/movie/${movieID}/videos`);

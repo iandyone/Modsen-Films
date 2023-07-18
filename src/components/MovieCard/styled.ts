@@ -2,6 +2,15 @@ import { styled, css } from 'styled-components';
 import '@styles/index.scss';
 
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: 0px 4px 20px var(--shadow-color);
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
   ${(props) =>
     props.$isLoading &&
     css`
