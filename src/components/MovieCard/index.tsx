@@ -1,10 +1,9 @@
 import { FC, MouseEvent } from 'react';
-import { Avatar, Content, Description, MovieCardElement, Picture, Text, Title } from './styled';
+import { Avatar, AvatarLoader, Content, ContentLoader, Description, MovieCardElement, Picture, PictureLoader, Text, Title } from './styled';
 import { IMovie, MovieGenres } from '@constants/types';
 import { useDispatchTyped } from '@utils/hooks/redux-hooks';
 import { setModalMenu } from '@store/reducers/app-slice';
 import { setMovieID } from '@store/reducers/movie-slice';
-import { SkeletonLoader } from '@components/Loader';
 import NotFoundPlaceholder from '@assets/not-found.png';
 
 interface IMovieCardProps {
@@ -35,7 +34,11 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
   if (isLoading) {
     return (
       <MovieCardElement $isLoading={isLoading}>
-        <SkeletonLoader />
+        <PictureLoader>
+          <AvatarLoader />
+          <ContentLoader />
+          <ContentLoader />
+        </PictureLoader>
       </MovieCardElement>
     );
   }

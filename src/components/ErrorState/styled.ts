@@ -13,7 +13,16 @@ export const Container = styled.article`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media(max-width: 700px) {
+    position: relative;
+    transform: translate(0%, 0%);
+    top: 0;
+    left: 0;
+  }
 `;
+
+export const PictureContainer = styled.div``;
 
 export const Text = styled.p`
   font-size: var(--font-size-l);

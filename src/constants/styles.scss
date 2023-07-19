@@ -7,7 +7,8 @@
     --black: #000;
     --white: #fff;
     --dark: #2e3130;
-    --dark2: #4c5150;
+    --dark2: #3b3b3b;
+    --dark3: #272727;
     --orange: #ff8a00;
     --gray: #c4c4c4;
     --gray2: #0000000f;
@@ -17,6 +18,7 @@
 
     --transition: all 0.3s ease;
     --button-pressed: scale(0.9);
+    --shimer: shimmer 1.5s infinite;
 }
 
 .app.light {
@@ -34,9 +36,18 @@
     --tag-button-bg-active: var(--black);
 
     --button-bg: var(--orange);
+    --button-hover-bg: var(--gray);
 
     --burger-bg: var(--gray);
 
+    --skeleton-main: #dddbdd;
+    --skeleton-shimer: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
     --footer-company: var(--gray);
     --footer-text: var(--gray3);
     --footer-svg: var(--gray-svg);
@@ -51,15 +62,24 @@
     --input-bg: var(--dark);
     --shadow-color: var(--gray4);
 
-    --tag-button-text: var(--black);
-    --tag-button-bg: var(--white);
+    --tag-button-text: var(--white);
+    --tag-button-bg: var(--dark3);
     --tag-button-text-active: var(--black);
-    --tag-button-bg-active: var(--gray);
+    --tag-button-bg-active: var(--white);
 
     --button-bg: var(--orange);
+    --button-hover-bg: var(--gray);
 
     --burger-bg: var(--dark);
 
+    --skeleton-main: var(--dark2);
+    --skeleton-shimer: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
     --footer-company: var(--white);
     --footer-text: var(--white);
     --footer-svg: var(--white);

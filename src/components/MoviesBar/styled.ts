@@ -26,7 +26,7 @@ export const Body = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, 332px));
   justify-content: center;
-  column-gap: 20px;
+  column-gap: 10px;
   row-gap: 30px;
   margin-bottom: 38px;
   width: 100%;
@@ -57,6 +57,11 @@ export const Button = styled.button<{ $isNextPage: boolean }>`
   background: var(--button-bg);
   border-radius: 10px;
   transition: var(--transition);
+  
+  &:hover {
+    border-radius: 30px;
+    transition: var(--transition);
+  }
 
   ${({ $isNextPage }) =>
     !$isNextPage &&

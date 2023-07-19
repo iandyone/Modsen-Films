@@ -3,7 +3,6 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface IMovieSliceProps {
   movies: IMovie[];
-  originals: IMovie[];
   moviesPage: number;
   searchByTag: IGenre;
   searchByTitle: string;
@@ -14,7 +13,6 @@ interface IMovieSliceProps {
 
 const initialState: IMovieSliceProps = {
   movies: [],
-  originals: [],
   moviesPage: 1,
   searchByTag: 'ALL',
   searchByTitle: '',
@@ -46,11 +44,11 @@ const movieSlice = createSlice({
       state.movies = [];
     },
     clearFilters(state) {
+      state.movies = initialState.movies;
       state.searchByTag = initialState.searchByTag;
       state.searchByTitle = initialState.searchByTitle;
       state.title = initialState.title;
       state.moviesPage = initialState.moviesPage;
-      state.movies = initialState.movies;
     },
     setFilter(state, action: PayloadAction<IFIlter>) {
       state.filter = action.payload;

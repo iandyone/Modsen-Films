@@ -1,8 +1,9 @@
 import { styled, css } from 'styled-components';
-import '@styles/index.scss';
+import '@styles/keyframes.scss';
 
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
   transition: var(--transition);
+  padding: 0 4px;
 
   ${({ $isLoading }) =>
     !$isLoading &&
@@ -15,17 +16,31 @@ export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
       }
     `}
 
-  ${(props) =>
-    props.$isLoading &&
+  ${({ $isLoading }) =>
+    $isLoading &&
     css`
       position: relative;
-      top: -48px;
-    `} 
+      min-height: 200px;
+      overflow: hidden;
+      background-color: var(--skeleton-main);
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: var(--skeleton-shimer);
+        animation: var(--shimer);
+      }
+    }
+    `}
 `;
 
-export const Picture = styled.img.attrs((props) => ({
-  src: props.src,
-  alt: props.alt,
+export const Picture = styled.img.attrs(({ src }) => ({
+  src: src,
+  alt: 'poster',
 }))`
   width: 100%;
   max-height: 186px;
@@ -75,4 +90,47 @@ export const Text = styled.p`
   transition: var(--transition);
   text-transform: capitalize;
   line-height: 130%;
+`;
+
+export const PictureLoader = styled.div`
+  max-height: 285px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 36%;
+  top: 0;
+  background: var(--gray);
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 800px) {
+    bottom: 45%;
+  }
+
+  @media (max-width: 700px) {
+    bottom: 35%;
+  }
+`;
+
+export const AvatarLoader = styled.div`
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 4px;
+  bottom: -50px;
+  border-radius: 50%;
+  background: var(--gray);
+`;
+
+export const ContentLoader = styled.div`
+  right: 10px;
+  height: 14px;
+  width: 72%;
+  background: var(--gray);
+  position: absolute;
+  bottom: -30px;
+
+  &:nth-child(2) {
+    bottom: -52px;
+  }
 `;

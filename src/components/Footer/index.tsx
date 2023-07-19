@@ -42,8 +42,8 @@ export const Footer: FC = () => {
             </Column>
             <Column>
               <Link>About Press Copyright</Link>
-              <Link> Contact us Creators</Link>
-              <Link> Advertise Developers</Link>
+              <Link>Contact us Creators</Link>
+              <Link>Advertise Developers</Link>
             </Column>
           </Content>
           <Links>

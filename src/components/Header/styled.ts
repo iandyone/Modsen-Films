@@ -31,9 +31,20 @@ export const Logo = styled.div`
   align-items: center;
   column-gap: 6px;
   min-width: 144px;
+  transition: var(--transition);
 
   &:hover {
     cursor: pointer;
+  }
+
+  &:active {
+    transform: var(--button-pressed);
+    transition: var(--transition);
+  }
+
+  &:hover {
+    opacity: .6;
+    transition: var(--transition);
   }
 `;
 

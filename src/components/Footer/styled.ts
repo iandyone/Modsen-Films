@@ -60,6 +60,12 @@ export const Link = styled.a.attrs({
   font-weight: 500;
   transition: var(--transition);
 
+  &:hover {
+    transform: translateX(5px);
+    color: var(--orange);
+    transition: var(--transition);
+  }
+
   @media (max-width: 992px) {
     font-size: var(--font-size-l);
   }
@@ -77,6 +83,7 @@ export const Links = styled.ul`
   display: flex;
   column-gap: 24px;
   height: 16px;
+  transition: var(--transition);
 `;
 
 export const Media = styled.a.attrs((props) => ({
@@ -85,6 +92,12 @@ export const Media = styled.a.attrs((props) => ({
 }))`
   display: inline-block;
   height: 100%;
+  transition: var(--transition);
+
+  &:hover {
+    opacity: 0.6;
+    transition: var(--transition);
+  }
 
   &:active {
     transform: var(--button-pressed);

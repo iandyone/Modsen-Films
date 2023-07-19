@@ -1,10 +1,9 @@
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
-import { ChangeEvent, FC, FormEvent, MouseEvent } from 'react';
+import { ChangeEvent, FC, FormEvent, MouseEvent, useRef } from 'react';
 import { clearFilters, clearMovies, setFilter, setMovieID, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
-import { Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Title } from './styled';
+import { Container, Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Spinner, Title } from './styled';
 import { useFindMoviesByTitleQuery } from '@store/reducers/movie-api';
 import { setModalMenu, setSearchMenu } from '@store/reducers/app-slice';
-import { MagnifyingGlass } from 'react-loader-spinner';
 import { useDebounce } from '@utils/hooks/useDebounce';
 import SearchIcon from '@assets/icons/search.svg';
 import DefaultPoster from '@assets/no-poster.png';
@@ -14,6 +13,7 @@ export const Search: FC = () => {
   const dispatch = useDispatchTyped();
   const debouncedTitle = useDebounce(title);
   const posterBaseURL = 'https://image.tmdb.org/t/p/w92';
+  const inputRef = useRef(null);
 
   const { isSearchOpened } = useSelectorTyped((store) => store.app);
   const { data, isFetching } = useFindMoviesByTitleQuery({ query: debouncedTitle, page: 1 }, { skip: debouncedTitle.length < 2 });
@@ -70,12 +70,14 @@ export const Search: FC = () => {
 
   return (
     <SearchForm onSubmit={handlerOnSubmit} onClick={handlerOnClickForm}>
-      <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} />
-      <SearchButton>
-        <SearchIcon fill='var(--text-color)' />
-      </SearchButton>
+      <Container>
+        <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} />
+        <SearchButton $isFocused={document.activeElement === inputRef.current}>
+          <SearchIcon fill='var(--text-color)' />
+        </SearchButton>
+      </Container>
       <ElasticSearch $visible={searchCondition} $isLoading={isFetching}>
-        {fetchingCondition && <MagnifyingGlass color='var(--orange)' glassColor='var(--bg-color)' />}
+        {fetchingCondition && <Spinner />}
 
         {moviesCondition &&
           data.results.map((movie) => {

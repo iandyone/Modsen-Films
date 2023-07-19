@@ -3,16 +3,22 @@ import { AppContainer, Body, Logo, Text, Theme } from './styled';
 import { Search } from '@components/Search';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 import { Menu } from '@components/BurgerMenu';
-import { useDispatchTyped } from '@utils/hooks/redux-hooks';
-import { clearFilters, setFilter } from '@store/reducers/movie-slice';
+import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
+import { clearFilters, setFilter, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
 import LogoIcon from '@assets/icons/logo.svg';
 
 export const Header: FC = () => {
   const dispatch = useDispatchTyped();
+  const { filter } = useSelectorTyped((store) => store.movies);
 
   function handlerOnClick() {
-    dispatch(clearFilters());
+    if (filter !== 'default') {
+      dispatch(clearFilters());
+    }
     dispatch(setFilter('default'));
+    dispatch(setSearchTag('ALL'));
+    dispatch(setTitle(''));
+    dispatch(setSearchTitle(''));
   }
 
   return (
