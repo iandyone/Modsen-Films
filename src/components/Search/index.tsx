@@ -1,5 +1,5 @@
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
-import { ChangeEvent, FC, FormEvent, MouseEvent, useRef } from 'react';
+import { ChangeEvent, FC, FormEvent, MouseEvent, useRef, useState } from 'react';
 import { clearFilters, clearMovies, setFilter, setMovieID, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
 import { Container, Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Spinner, Title } from './styled';
 import { useFindMoviesByTitleQuery } from '@store/reducers/movie-api';
@@ -16,6 +16,7 @@ export const Search: FC = () => {
   const inputRef = useRef(null);
 
   const { isSearchOpened } = useSelectorTyped((store) => store.app);
+  const { searchByTitle } = useSelectorTyped((store) => store.movies);
   const { data, isFetching } = useFindMoviesByTitleQuery({ query: debouncedTitle, page: 1 }, { skip: debouncedTitle.length < 2 });
   const { searchCondition, counterCondition, fetchingCondition, moviesCondition } = getVisibilityConditions();
 
@@ -43,12 +44,14 @@ export const Search: FC = () => {
       return;
     }
 
-    dispatch(setSearchTitle(title));
-    dispatch(setMoviesPage(1));
-    dispatch(clearMovies());
-    dispatch(setSearchTag('ALL'));
-    dispatch(setFilter('title'));
-    dispatch(setModalMenu(false));
+    if (title !== searchByTitle) {
+      dispatch(setSearchTitle(title));
+      dispatch(setMoviesPage(1));
+      dispatch(clearMovies());
+      dispatch(setSearchTag('ALL'));
+      dispatch(setFilter('title'));
+      dispatch(setModalMenu(false));
+    }
   }
 
   function handlerOnFocus() {

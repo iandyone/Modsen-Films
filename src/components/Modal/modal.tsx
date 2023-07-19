@@ -27,7 +27,7 @@ const Modal: FC = () => {
       const trailler = data.results?.find((videoData) => videoData.type === VideoType.TRAILER && videoData.site === VideoSource.YOUTUBE);
       setTraillerURL(trailler?.key ? trailerBaseURL + trailler.key : '');
     }
-  }, [data]);
+  }, [data, movieID]);
 
   useEffect(() => {
     document.body.style.overflowY = isModalOpened ? 'hidden' : 'auto';
@@ -38,9 +38,9 @@ const Modal: FC = () => {
       <Content $isVisible={isModalOpened}>
         {isFetching && <Spinner />}
 
-        {!traillerURL && !isFetching && <Text>Trailer is not found</Text>}
-
         {traillerURL && !isFetching && <Video src={traillerURL} />}
+
+        {!traillerURL && !isFetching && !data?.results.length && <Text>Trailer is not found</Text>}
         <CloseButton $isVisible={isModalOpened} onClick={handlerOnClick}>
           <ButtonIcon />
         </CloseButton>

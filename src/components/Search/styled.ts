@@ -99,7 +99,7 @@ export const ElasticSearch = styled.ul<{ $visible: boolean; $isLoading: boolean 
       top: 100%;
       left: 0;
       right: 0;
-      max-width: 628px;
+      max-width: 640px;
       max-height: 450px;
       background: var(--input-bg);
       padding: 14px 0px;

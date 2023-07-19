@@ -1,22 +1,6 @@
 import { axiosBaseQuery } from '@config/axios';
-import { IBaseRequest, IMovieResponce, IVideoResponse, Languages,  MovieGenreTags } from '@constants/types';
+import { IFindMovieByGenreParams, IFindMovieByTitleParams, IGetMovieParams, IGetVideoParams, IMovieResponce, IVideoResponse, Languages } from '@constants/types';
 import { createApi } from '@reduxjs/toolkit/query/react';
-
-interface IFindMovieByTitleParams extends IBaseRequest {
-  query: string;
-}
-
-interface IFindMovieByGenreParams extends IBaseRequest {
-  genre: number;
-}
-
-interface IGetMovieParams extends IBaseRequest {
-  genre?:  MovieGenreTags;
-}
-
-interface IGetVideoParams {
-  movieID: number;
-}
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
@@ -65,5 +49,3 @@ export const movieApi = createApi({
 });
 
 export const { useGetMoviesQuery, useFindMoviesByTitleQuery, useFindMoviesByGenreQuery, useGetVideoQuery } = movieApi;
-
-//https://api.themoviedb.org/3/movie/${movieID}/videos`);

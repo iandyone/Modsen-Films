@@ -2,9 +2,9 @@ import { ComponentType, SVGProps } from 'react';
 
 export type IFIlter = 'default' | 'title' | 'genre';
 
-export interface IBaseRequest {
-  page: number;
-}
+export type IGenre = keyof typeof MovieGenreTags;
+
+export type Theme = 'light' | 'dark';
 
 export enum Languages {
   RUSSIAN = 'ru',
@@ -45,8 +45,6 @@ export enum MovieGenres {
   WESTERN = 37,
 }
 
-export type IGenre = keyof typeof MovieGenreTags;
-
 export enum SocialMedia {
   FACEBOOK = 'https://www.facebook.com/ModsenSoftware',
   INSTAGRAM = 'https://www.instagram.com/modsencompany',
@@ -64,7 +62,9 @@ export enum VideoSource {
   YOUTUBE = 'YouTube',
 }
 
-export type Theme = 'light' | 'dark';
+export interface IBaseRequest {
+  page: number;
+}
 
 export interface ITagButton {
   tag: IGenre;
@@ -115,4 +115,20 @@ export interface IVideo {
 export interface IVideoResponse {
   id: number;
   results: IVideo[];
+}
+
+export interface IFindMovieByTitleParams extends IBaseRequest {
+  query: string;
+}
+
+export interface IFindMovieByGenreParams extends IBaseRequest {
+  genre: number;
+}
+
+export interface IGetMovieParams extends IBaseRequest {
+  genre?: MovieGenreTags;
+}
+
+export interface IGetVideoParams {
+  movieID: number;
 }

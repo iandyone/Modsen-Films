@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import ErrorIcon from '@assets/icons/error.svg';
 import { Button, Container, Text } from './styled';
+import ErrorIcon from '@assets/icons/error.svg';
 
 interface IErrorState {
   message: string;
