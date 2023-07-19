@@ -1,14 +1,14 @@
 import { TagButton } from '@components/TagButton';
 import { FC } from 'react';
 import { AppContainer, Nav, NavElement } from './styled';
-import { IGenre, MovieGenres } from '@constants/types';
+import { IGenre, MovieGenreTags } from '@constants/types';
 
 export const Navbar: FC = () => {
   return (
     <Nav>
       <AppContainer>
         <NavElement>
-          {Object.keys(MovieGenres)
+          {Object.keys(MovieGenreTags)
             .filter((key) => Number.parseInt(key) !== +key)
             .map((tag) => (
               <TagButton key={tag} tag={tag as IGenre} />

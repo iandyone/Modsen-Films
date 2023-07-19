@@ -1,4 +1,4 @@
-import { ErrorPage } from '@pages/ErrorPage';
+import { ErrorState } from '@components/ErrorState';
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 
 interface ErrorBoundaryProps {
@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
       // TODO: сделать error page
       return (
         <Suspense fallback=''>
-          <ErrorPage message='Unexpected error while the application is running' withReloadingButton={true} />
+          <ErrorState message='Unexpected error while the application is running' withReloadingButton={true} />
         </Suspense>
       );
     }

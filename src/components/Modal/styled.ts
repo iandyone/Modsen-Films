@@ -7,6 +7,8 @@ export const ModalElement = styled.div<{ $isVisible: boolean }>`
   height: 0;
   width: 0;
   height: 0;
+  position: relative;
+  z-index: 200;
 
   ${({ $isVisible }) =>
     $isVisible &&
@@ -30,11 +32,11 @@ export const Content = styled.div<{ $isVisible: boolean }>`
     css`
       width: 70vw;
       height: 39.25vw;
+
       background: var(--bg-color);
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
 
       @media (max-width: 992px) {
         width: 90vw;
@@ -43,8 +45,8 @@ export const Content = styled.div<{ $isVisible: boolean }>`
     `}
 `;
 
-export const Video = styled.iframe.attrs<{ id: string }>((props) => ({
-  src: `https://www.youtube-nocookie.com/embed/${props.id}`,
+export const Video = styled.iframe.attrs<{ src: string }>(({ src }) => ({
+  src: src,
   title: 'YouTube video player',
   allow: 'accelerometer; clipboard-write; encrypted-media; gyroscope; web-share',
   allowFullScreen: true,
@@ -65,6 +67,7 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
   ${({ $isVisible }) =>
     $isVisible &&
     css`
+      position: absolute;
       display: block;
       opacity: 1;
       width: 48px;
@@ -72,9 +75,8 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      top: -60px;
-      right: -60px;
+      top: 5%;
+      right: 5%;
       transition: var(--transition);
       pointer-events: auto;
 
@@ -84,8 +86,8 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
       }
 
       @media (max-width: 992px) {
-        top: -76px;
-        right: -30px;
+        top: 2%;
+        right: 2%;
       }
     `}
 `;

@@ -11,23 +11,21 @@ const Modal: FC = () => {
   const { isModalOpened } = useSelectorTyped((store) => store.app);
   const { movieID } = useSelectorTyped((store) => store.movies);
   const { data, isFetching } = useGetVideoQuery({ movieID: movieID }, { skip: !movieID });
-  const [traillerKey, setTraillerKey] = useState('');
+  const [traillerURL, setTraillerURL] = useState('');
   const dispatch = useDispatchTyped();
 
   function handlerOnClick() {
+    setTraillerURL('');
     dispatch(setModalMenu(false));
   }
 
   useEffect(() => {
     if (data) {
+      const trailerBaseURL = 'https://www.youtube-nocookie.com/embed/';
       const trailler = data.results?.find((videoData) => videoData.type === VideoType.TRAILER && videoData.site === VideoSource.YOUTUBE);
-      setTraillerKey(trailler?.key ? trailler.key : '');
+      setTraillerURL(trailler?.key ? trailerBaseURL + trailler.key : '');
     }
   }, [data]);
-
-  useEffect(() => {
-    console.log(traillerKey);
-  }, [traillerKey]);
 
   useEffect(() => {
     document.body.style.overflowY = isModalOpened ? 'hidden' : 'auto';
@@ -38,9 +36,9 @@ const Modal: FC = () => {
       <Content $isVisible={isModalOpened}>
         {isFetching && <MagnifyingGlass color='var(--orange)' glassColor='var(--bg-color)' />}
 
-        {!traillerKey && !isFetching && <Text>Trailer is not found</Text>}
+        {!traillerURL && !isFetching && <Text>Trailer is not found</Text>}
 
-        {traillerKey && !isFetching && <Video id={traillerKey} />}
+        {traillerURL && !isFetching && <Video src={traillerURL} />}
         <CloseButton $isVisible={isModalOpened} onClick={handlerOnClick}>
           <ButtonIcon />
         </CloseButton>

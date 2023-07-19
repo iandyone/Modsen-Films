@@ -73,4 +73,6 @@ export const Text = styled.p`
   font-size: 14px;
   color: var(--text-color);
   transition: var(--transition);
+  text-transform: capitalize;
+  line-height: 130%;
 `;

@@ -2,10 +2,10 @@ import { MovieCard } from '@components/MovieCard';
 import { FC, useEffect, useState } from 'react';
 import { AppContainer, Body, Button, MovieBarElement } from './styled';
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
-import { MovieGenres } from '@constants/types';
+import {  MovieGenreTags } from '@constants/types';
 import { useFindMoviesByGenreQuery, useFindMoviesByTitleQuery, useGetMoviesQuery } from '@store/reducers/movie-api';
 import { addMovies, setMoviesPage } from '@store/reducers/movie-slice';
-import { ErrorPage } from '@pages/ErrorPage';
+import { ErrorState } from '@components/ErrorState';
 
 export const MovieBar: FC = () => {
   const { filmsPerPage } = useSelectorTyped((store) => store.app);
@@ -13,7 +13,7 @@ export const MovieBar: FC = () => {
   const { skipBase, skipTitle, skipGenre } = getFetchSkipConditions();
   const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
   const { data: moviesByTitle, isFetching: isFetchingByTitle, isSuccess: isSuccessByTitle } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: skipTitle });
-  const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenres[searchByTag] }, { skip: skipGenre });
+  const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre:  MovieGenreTags[searchByTag] }, { skip: skipGenre });
   const [isNextPage, setIsNextPage] = useState(true);
 
   const dispatch = useDispatchTyped();
@@ -51,7 +51,7 @@ export const MovieBar: FC = () => {
   return (
     <MovieBarElement>
       <AppContainer>
-        {movies.length === 0 && !isLoader && <ErrorPage message='There is no movies' />}
+        {movies.length === 0 && !isLoader && <ErrorState message='There is no movies' />}
         <Body>
           {movies.map((movie) => {
             return <MovieCard key={movie.id} isLoading={false} movieData={movie} />;

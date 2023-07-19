@@ -17,6 +17,9 @@ export const AppContainer = styled.div`
   @media (max-width: 700px) {
     padding: 28px 20px 40px 20px;
   }
+  @media (max-width: 600px) {
+    padding-top: 0px;
+  }
 `;
 
 export const Body = styled.div`
@@ -56,7 +59,8 @@ export const Button = styled.button<{ $isNextPage: boolean }>`
   transition: var(--transition);
 
   ${({ $isNextPage }) =>
-    !$isNextPage && css`
+    !$isNextPage &&
+    css`
       display: none;
     `}
 

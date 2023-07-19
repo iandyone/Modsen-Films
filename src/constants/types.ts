@@ -1,14 +1,25 @@
 import { ComponentType, SVGProps } from 'react';
 
+export type IFIlter = 'default' | 'title' | 'genre';
+
+export interface IBaseRequest {
+  page: number;
+}
+
 export enum Languages {
   RUSSIAN = 'ru',
   ENGLISH = 'en',
 }
 
-export type IFIlter = 'default' | 'title' | 'genre';
-
-export interface IBaseRequest {
-  page: number;
+export enum MovieGenreTags {
+  ALL = 0,
+  ACTION = 28,
+  DRAMA = 18,
+  CRIME = 80,
+  ADVENTURE = 12,
+  ROMANCE = 10749,
+  HORROR = 27,
+  DOCUMENTARY = 99,
 }
 
 export enum MovieGenres {
@@ -20,24 +31,21 @@ export enum MovieGenres {
   ROMANCE = 10749,
   HORROR = 27,
   DOCUMENTARY = 99,
-
-  /* unused */
-
-  // COMEDY = 35,
-  // ANIMATION = 16,
-  // FAMILY = 10751,
-  // FANTASY = 14,
-  // HISTORY = 36,
-  // MUSIC = 10402,
-  // MYSTERY = 9648,
-  // SCIENCEfICTION = 878,
-  // TvmOVIE = 10770,
-  // THRILLER = 53,
-  // WAR = 10752,
-  // WESTERN = 37,
+  COMEDY = 35,
+  ANIMATION = 16,
+  FAMILY = 10751,
+  FANTASY = 14,
+  HISTORY = 36,
+  MUSIC = 10402,
+  MYSTERY = 9648,
+  SCIENCEfICTION = 878,
+  TvmOVIE = 10770,
+  THRILLER = 53,
+  WAR = 10752,
+  WESTERN = 37,
 }
 
-export type IGenre = keyof typeof MovieGenres;
+export type IGenre = keyof typeof MovieGenreTags;
 
 export enum SocialMedia {
   FACEBOOK = 'https://www.facebook.com/ModsenSoftware',
@@ -75,7 +83,7 @@ export interface ISocialMedia {
 
 export interface IMovie {
   id: number;
-  genre_ids: MovieGenres;
+  genre_ids: MovieGenreTags[];
   title: string;
   overview: string;
   backdrop_path: string;

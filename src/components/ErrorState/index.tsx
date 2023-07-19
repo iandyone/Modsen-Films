@@ -2,12 +2,12 @@ import { FC } from 'react';
 import ErrorIcon from '@assets/icons/error.svg';
 import { Button, Container, Text } from './styled';
 
-interface IErrorPage {
+interface IErrorState {
   message: string;
   withReloadingButton?: boolean;
 }
 
-export const ErrorPage: FC<IErrorPage> = ({ message, withReloadingButton = false }) => {
+export const ErrorState: FC<IErrorState> = ({ message, withReloadingButton = false }) => {
   function handlerOnClick() {
     location.reload();
   }

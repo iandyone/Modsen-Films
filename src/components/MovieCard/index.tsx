@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import { Avatar, Content, Description, MovieCardElement, Picture, Text, Title } from './styled';
-import { IMovie } from '@constants/types';
+import { IMovie, MovieGenres } from '@constants/types';
 import { useDispatchTyped } from '@utils/hooks/redux-hooks';
 import { setModalMenu } from '@store/reducers/app-slice';
 import { setMovieID } from '@store/reducers/movie-slice';
@@ -18,10 +18,18 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
   const releaseDate = release_date && release_date.slice(0, 4);
   const poster = posterURL ? posterBaseURL + posterURL : NotFoundPlaceholder;
   const dispatch = useDispatchTyped();
+  const movieGenres = getMovieGenres();
 
-  async function handlerOnClick() {
+  async function handlerOnClick(e: MouseEvent<HTMLDivElement>) {
     dispatch(setModalMenu(true));
     dispatch(setMovieID(movieData.id));
+    e.stopPropagation();
+  }
+
+  function getMovieGenres() {
+    if (movieData.genre_ids) {
+      return movieData.genre_ids.map((genreID) => MovieGenres[genreID].toLocaleLowerCase()).join(' ∘ ');
+    }
   }
 
   if (isLoading) {
@@ -39,7 +47,9 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
         <Avatar src={poster} />
         <Description>
           <Title>{title}</Title>
-          <Text>{releaseDate}</Text>
+          <Text>
+            {releaseDate} {movieGenres}
+          </Text>
         </Description>
       </Content>
     </MovieCardElement>

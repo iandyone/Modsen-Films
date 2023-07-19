@@ -14,7 +14,7 @@ export const MenuContainer = styled.div`
 
 export const BurgerButton = styled.button`
   position: relative;
-  z-index: 100;
+  z-index: 160;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -52,6 +52,7 @@ export const BurgerLine = styled.span<{ $isOpen: boolean }>`
 
 export const MenuContent = styled.div<{ $isOpen: boolean }>`
   position: fixed;
+  z-index: 150;
   top: 66px;
   top: 0;
   left: 0;

@@ -19,6 +19,10 @@ export const NavElement = styled.nav`
   gap: 6px 10px;
   flex-wrap: wrap;
   padding: 12px 0px;
+
+  @media (max-width: 600px) {
+    padding: 20px 0px;
+  }
 `;
 
 export const Nav = styled.div`

@@ -1,5 +1,5 @@
 import { axiosBaseQuery } from '@config/axios';
-import { IBaseRequest, IMovieResponce, IVideoResponse, Languages, MovieGenres } from '@constants/types';
+import { IBaseRequest, IMovieResponce, IVideoResponse, Languages,  MovieGenreTags } from '@constants/types';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
 interface IFindMovieByTitleParams extends IBaseRequest {
@@ -11,7 +11,7 @@ interface IFindMovieByGenreParams extends IBaseRequest {
 }
 
 interface IGetMovieParams extends IBaseRequest {
-  genre?: MovieGenres;
+  genre?:  MovieGenreTags;
 }
 
 interface IGetVideoParams {
