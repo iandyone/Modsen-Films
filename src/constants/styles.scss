@@ -1,86 +1,74 @@
 :root {
-    --font-family: "Roboto", "Arial";
-    --font-size-s: 14px;
-    --font-size-m: 16px;
-    --font-size-l: 18px;
+  --font-family: 'Roboto', 'Arial';
+  --font-size-s: 14px;
+  --font-size-m: 16px;
+  --font-size-l: 18px;
 
-    --black: #000;
-    --white: #fff;
-    --dark: #2e3130;
-    --dark2: #3b3b3b;
-    --dark3: #272727;
-    --orange: #ff8a00;
-    --gray: #c4c4c4;
-    --gray2: #0000000f;
-    --gray3: rgba(0, 0, 0, 0.83);
-    --gray4: rgba(0, 0, 0, 0.08);
-    --gray-svg: #6d6e76;
+  --black: #000;
+  --white: #fff;
+  --dark: #2e3130;
+  --dark2: #3b3b3b;
+  --dark3: #272727;
+  --orange: #ff8a00;
+  --gray: #c4c4c4;
+  --gray2: #0000000f;
+  --gray3: rgba(0, 0, 0, 0.83);
+  --gray4: rgba(0, 0, 0, 0.08);
+  --gray-svg: #6d6e76;
 
-    --transition: all 0.3s ease;
-    --button-pressed: scale(0.9);
-    --shimer: shimmer 1.5s infinite;
+  --transition: all 0.3s ease;
+  --button-pressed: scale(0.9);
+  --shimer: shimmer 1.5s infinite;
 }
 
 .app.light {
-    --bg-color: var(--white);
-    --text-color: var(--black);
-    --border-color: var(--gray);
-    --input-color: var(--white);
-    --main-color: var(--orange);
-    --input-bg: var(--white);
-    --shadow-color: var(--gray4);
+  --bg-color: var(--white);
+  --text-color: var(--black);
+  --border-color: var(--gray);
+  --input-color: var(--white);
+  --main-color: var(--orange);
+  --input-bg: var(--white);
+  --shadow-color: var(--gray4);
 
-    --tag-button-text: var(--black);
-    --tag-button-bg: var(--gray2);
-    --tag-button-text-active: var(--white);
-    --tag-button-bg-active: var(--black);
+  --tag-button-text: var(--black);
+  --tag-button-bg: var(--gray2);
+  --tag-button-text-active: var(--white);
+  --tag-button-bg-active: var(--black);
 
-    --button-bg: var(--orange);
-    --button-hover-bg: var(--gray);
+  --button-bg: var(--orange);
+  --button-hover-bg: var(--gray);
 
-    --burger-bg: var(--white);
+  --burger-bg: var(--white);
 
-    --skeleton-main: #dddbdd;
-    --skeleton-shimer: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.5) 60%,
-        rgba(255, 255, 255, 0)
-    );
-    --footer-company: var(--gray);
-    --footer-text: var(--gray3);
-    --footer-svg: var(--gray-svg);
+  --skeleton-main: #dddbdd;
+  --skeleton-shimer: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  --footer-company: var(--gray);
+  --footer-text: var(--gray3);
+  --footer-svg: var(--gray-svg);
 }
 
 .app.dark {
-    --bg-color: var(--dark);
-    --text-color: var(--white);
-    --border-color: var(--gray);
-    --input-color: var(--white);
-    --main-color: var(--white);
-    --input-bg: var(--dark);
-    --shadow-color: var(--gray4);
+  --bg-color: var(--dark);
+  --text-color: var(--white);
+  --border-color: var(--gray);
+  --input-color: var(--white);
+  --main-color: var(--white);
+  --input-bg: var(--dark);
+  --shadow-color: var(--gray4);
 
-    --tag-button-text: var(--white);
-    --tag-button-bg: var(--dark3);
-    --tag-button-text-active: var(--black);
-    --tag-button-bg-active: var(--white);
+  --tag-button-text: var(--white);
+  --tag-button-bg: var(--dark3);
+  --tag-button-text-active: var(--black);
+  --tag-button-bg-active: var(--white);
 
-    --button-bg: var(--orange);
-    --button-hover-bg: var(--gray);
+  --button-bg: var(--orange);
+  --button-hover-bg: var(--gray);
 
-    --burger-bg: var(--dark);
+  --burger-bg: var(--dark);
 
-    --skeleton-main: var(--dark2);
-    --skeleton-shimer: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.5) 60%,
-        rgba(255, 255, 255, 0)
-    );
-    --footer-company: var(--white);
-    --footer-text: var(--white);
-    --footer-svg: var(--white);
+  --skeleton-main: var(--dark2);
+  --skeleton-shimer: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  --footer-company: var(--white);
+  --footer-text: var(--white);
+  --footer-svg: var(--white);
 }

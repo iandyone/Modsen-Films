@@ -1,7 +1,10 @@
 import { TagButtonProps } from '@constants/types';
 import { styled, css } from 'styled-components';
 
-export const Button = styled.button<{ $options: TagButtonProps; $isButtonActive: boolean }>`
+export const Button = styled.button<{
+  $options: TagButtonProps;
+  $isButtonActive: boolean;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;

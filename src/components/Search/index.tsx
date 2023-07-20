@@ -1,5 +1,5 @@
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
-import { ChangeEvent, FC, FormEvent, MouseEvent, useRef, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, MouseEvent, useRef } from 'react';
 import { clearFilters, clearMovies, setFilter, setMovieID, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
 import { Container, Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Spinner, Title } from './styled';
 import { useFindMoviesByTitleQuery } from '@store/reducers/movie-api';
@@ -76,7 +76,7 @@ export const Search: FC = () => {
       <Container>
         <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} />
         <SearchButton $isFocused={document.activeElement === inputRef.current}>
-          <SearchIcon fill='var(--text-color)' />
+          <SearchIcon fill="var(--text-color)" />
         </SearchButton>
       </Container>
       <ElasticSearch $visible={searchCondition} $isLoading={isFetching}>

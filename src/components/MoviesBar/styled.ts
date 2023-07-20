@@ -57,7 +57,7 @@ export const Button = styled.button<{ $isNextPage: boolean }>`
   background: var(--button-bg);
   border-radius: 10px;
   transition: var(--transition);
-  
+
   &:hover {
     border-radius: 30px;
     transition: var(--transition);

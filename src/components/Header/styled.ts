@@ -43,7 +43,7 @@ export const Logo = styled.div`
   }
 
   &:hover {
-    opacity: .6;
+    opacity: 0.6;
     transition: var(--transition);
   }
 `;

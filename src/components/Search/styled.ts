@@ -77,7 +77,7 @@ export const SearchButton = styled.button.attrs({
     transition: var(--transition);
 
     ${({ $isFocused }) =>
-    $isFocused &&
+      $isFocused &&
       css`
         background: var(--orange);
       `}
@@ -88,7 +88,10 @@ export const SearchButton = styled.button.attrs({
     transition: var(--transition);
   }
 `;
-export const ElasticSearch = styled.ul<{ $visible: boolean; $isLoading: boolean }>`
+export const ElasticSearch = styled.ul<{
+  $visible: boolean;
+  $isLoading: boolean;
+}>`
   display: none;
 
   ${({ $visible }) =>

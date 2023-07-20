@@ -14,7 +14,7 @@ export const Container = styled.article`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     position: relative;
     transform: translate(0%, 0%);
     top: 0;
