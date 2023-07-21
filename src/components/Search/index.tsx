@@ -72,10 +72,10 @@ export const Search: FC = () => {
   }
 
   return (
-    <SearchForm onSubmit={handlerOnSubmit} onClick={handlerOnClickForm}>
+    <SearchForm onSubmit={handlerOnSubmit} onClick={handlerOnClickForm} data-testid='search-component'>
       <Container>
-        <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} />
-        <SearchButton $isFocused={document.activeElement === inputRef.current}>
+        <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} data-testid='search-input' />
+        <SearchButton $isFocused={document.activeElement === inputRef.current} data-testid='search-button'>
           <SearchIcon fill="var(--text-color)" />
         </SearchButton>
       </Container>

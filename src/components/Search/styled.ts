@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import '@styles/keyframes.scss';
+// import '@styles/keyframes.scss';
 
 export const Input = styled.input.attrs({
   placeholder: 'Search',
@@ -186,4 +186,10 @@ export const Spinner = styled.div`
   width: 50px;
   height: 50px;
   animation: spinAnimation 1s linear infinite;
+
+  @keyframes spinAnimation {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
