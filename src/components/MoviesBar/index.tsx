@@ -11,7 +11,7 @@ export const MovieBar: FC = () => {
   const { filmsPerPage } = useSelectorTyped((store) => store.app);
   const { moviesPage, movies, searchByTitle, searchByTag, filter } = useSelectorTyped((store) => store.movies);
   const { skipBase, skipTitle, skipGenre } = getFetchSkipConditions();
-  const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
+  const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog, error } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
   const { data: moviesByTitle, isFetching: isFetchingByTitle, isSuccess: isSuccessByTitle } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: skipTitle });
   const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenreTags[searchByTag] }, { skip: skipGenre });
   const [isNextPage, setIsNextPage] = useState(true);
@@ -32,6 +32,12 @@ export const MovieBar: FC = () => {
     };
   }
 
+  function getDisplayedMovies() {
+    if (isSuccessCatalog && filter === 'default') return moviesCatalog;
+    if (isSuccessByTitle && filter === 'title') return moviesByTitle;
+    if (isSuccessByGenre && filter === 'genre') return moviesByGenre;
+  }
+
   useEffect(() => {
     const moviesData = getDisplayedMovies();
 
@@ -42,26 +48,23 @@ export const MovieBar: FC = () => {
     //eslint-disable-next-line
   }, [moviesByTitle, moviesByGenre, moviesCatalog, dispatch, filter]);
 
-  function getDisplayedMovies() {
-    if (isSuccessCatalog && filter === 'default') return moviesCatalog;
-    if (isSuccessByTitle && filter === 'title') return moviesByTitle;
-    if (isSuccessByGenre && filter === 'genre') return moviesByGenre;
-  }
-
   return (
-    <MovieBarElement>
+    <MovieBarElement data-testid="movies-bar">
       <AppContainer>
-        {movies.length === 0 && !isLoader && <ErrorState message="There is no movies" />}
+        {error && error.code === 'ERR_NETWORK' && <ErrorState message="Unable to load movies.Please try to turning VPN on and update the page" />}
+
+        {!error && movies.length === 0 && !isLoader && <ErrorState message="There is no movies" />}
         <Body>
           {movies.map((movie) => {
             return <MovieCard key={movie.id} isLoading={false} movieData={movie} />;
           })}
+
           {isLoader &&
             movieLoader.map((movie, index) => {
               return <MovieCard key={index} isLoading={isLoader} movieData={movie} />;
             })}
         </Body>
-        <Button onClick={handlerOnClick} $isNextPage={isNextPage && movies.length !== 0}>
+        <Button onClick={handlerOnClick} $isNextPage={isNextPage && movies.length !== 0} data-testid="show-more-button">
           Show More
         </Button>
       </AppContainer>

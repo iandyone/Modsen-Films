@@ -1,15 +1,5 @@
-import { IFIlter, IGenre, IMovie } from '@constants/types';
+import { IFIlter, IGenre, IMovie, IMovieSliceProps } from '@constants/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-interface IMovieSliceProps {
-  movies: IMovie[];
-  moviesPage: number;
-  searchByTag: IGenre;
-  searchByTitle: string;
-  title: string;
-  filter: IFIlter;
-  movieID: number;
-}
 
 const initialState: IMovieSliceProps = {
   movies: [],

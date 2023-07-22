@@ -79,7 +79,7 @@ export const Search: FC = () => {
           <SearchIcon fill="var(--text-color)" />
         </SearchButton>
       </Container>
-      <ElasticSearch $visible={searchCondition} $isLoading={isFetching}>
+      <ElasticSearch $visible={searchCondition} $isLoading={isFetching} data-testid='search-menu'>
         {fetchingCondition && <Spinner />}
 
         {moviesCondition &&

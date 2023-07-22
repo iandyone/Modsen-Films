@@ -38,7 +38,7 @@ export enum MovieGenres {
   HISTORY = 36,
   MUSIC = 10402,
   MYSTERY = 9648,
-  SCIENCEfICTION = 878,
+  SCIENCEFICTION = 878,
   TvmOVIE = 10770,
   THRILLER = 53,
   WAR = 10752,
@@ -130,5 +130,15 @@ export interface IGetMovieParams extends IBaseRequest {
 }
 
 export interface IGetVideoParams {
+  movieID: number;
+}
+
+export interface IMovieSliceProps {
+  movies: IMovie[];
+  moviesPage: number;
+  searchByTag: IGenre;
+  searchByTitle: string;
+  title: string;
+  filter: IFIlter;
   movieID: number;
 }

@@ -28,6 +28,8 @@ export const Text = styled.p`
   font-size: var(--font-size-l);
   color: var(--text-color);
   transition: var(--transition);
+  text-align: center;
+  line-height: 150%;
 `;
 
 export const Button = styled.button`

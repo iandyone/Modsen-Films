@@ -63,6 +63,7 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
   transition: all 0.5s ease;
   opacity: 0;
   display: none;
+  transition: var(--transition);
 
   ${({ $isVisible }) =>
     $isVisible &&
@@ -82,6 +83,11 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
 
       &:active {
         transform: var(--button-pressed);
+        transition: var(--transition);
+      }
+
+      &:hover {
+        opacity: .8;
         transition: var(--transition);
       }
 

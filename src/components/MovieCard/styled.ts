@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import '@styles/keyframes.scss';
+// import '@styles/keyframes.scss';
 
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
   transition: var(--transition);
@@ -33,6 +33,13 @@ export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
         transform: translateX(-100%);
         background-image: var(--skeleton-shimer);
         animation: var(--shimer);
+
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      
       }
     }
     `}

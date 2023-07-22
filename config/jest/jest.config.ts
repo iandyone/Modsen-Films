@@ -10,8 +10,9 @@ export default {
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).ts?(x)'],
   rootDir: path.resolve(__dirname, '../../'),
   moduleNameMapper: {
-    '\\.svg$': '<rootDir>/config/jest/__mocks__/svg.js',
+    // '\\.svg$': '<rootDir>/config/jest/__mocks__/svg.js',
     // '\\.svg': path.resolve(__dirname, 'jest-empty-component.tsx'),
+    '\\.svg$': path.resolve(__dirname, '__mocks__', 'svg.js'),
     '\\.png': path.resolve(__dirname, 'jest-empty-component.tsx'),
     '^@components/(.*)': '<rootDir>src/components/$1',
     '^@assets/(.*)': '<rootDir>src/assets/$1',
