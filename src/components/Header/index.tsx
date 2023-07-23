@@ -26,7 +26,7 @@ export const Header: FC = () => {
       <Body>
         <Logo onClick={handlerOnClick}>
           <LogoIcon />
-          <Text>ModsenFilms</Text>
+          <Text data-testid='logo-text'>ModsenFilms</Text>
         </Logo>
         <Search />
         <Theme>

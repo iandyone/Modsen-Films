@@ -33,7 +33,7 @@ describe('Movie Bar module', () => {
     });
   });
 
-  test('should increase the movies pages byt clicking to the button', () => {
+  test('should increase the movies current pages by clicking to the button', () => {
     render(
       <Provider store={store}>
         <MovieBar />
@@ -47,7 +47,7 @@ describe('Movie Bar module', () => {
     expect(setMoviePageAction).toHaveBeenCalledWith(currentMoviesMage + 1);
   });
 
-  test('should open modal by clicking on the movie card', () => {
+  test('should open modal by clicking on movie card', () => {
     render(
       <Provider store={store}>
         <MovieBar />

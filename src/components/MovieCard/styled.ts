@@ -45,7 +45,7 @@ export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
     `}
 `;
 
-export const Picture = styled.img.attrs(({ src }) => ({
+export const Poster = styled.img.attrs(({ src }) => ({
   src: src,
   alt: 'poster',
 }))`
@@ -65,7 +65,7 @@ export const Content = styled.div`
 
 export const Avatar = styled.img.attrs((props) => ({
   src: props.src,
-  alt: props.alt,
+  alt: 'movie avatar',
 }))`
   flex: 0 0 36px;
   width: 36px;
@@ -99,7 +99,7 @@ export const Text = styled.p`
   line-height: 130%;
 `;
 
-export const PictureLoader = styled.div`
+export const PosterLoader = styled.div`
   max-height: 285px;
   position: absolute;
   right: 0;

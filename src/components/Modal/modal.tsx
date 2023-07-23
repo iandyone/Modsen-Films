@@ -34,14 +34,14 @@ const Modal: FC = () => {
   }, [isModalOpened]);
 
   return (
-    <ModalElement $isVisible={isModalOpened} onClick={handlerOnClick}>
-      <Content $isVisible={isModalOpened}>
+    <ModalElement $isVisible={isModalOpened} onClick={handlerOnClick} data-testid='modal'>
+      <Content $isVisible={isModalOpened} data-testid='modal-trailer'>
         {isFetching && <Spinner />}
 
         {traillerURL && !isFetching && <Video src={traillerURL} />}
 
         {!traillerURL && !isFetching && !data?.results.length && <Text>Trailer is not found</Text>}
-        <CloseButton $isVisible={isModalOpened} onClick={handlerOnClick}>
+        <CloseButton $isVisible={isModalOpened} onClick={handlerOnClick} data-testid='modal-button'>
           <ButtonIcon />
         </CloseButton>
       </Content>

@@ -72,14 +72,14 @@ export const Search: FC = () => {
   }
 
   return (
-    <SearchForm onSubmit={handlerOnSubmit} onClick={handlerOnClickForm} data-testid='search-component'>
+    <SearchForm onSubmit={handlerOnSubmit} onClick={handlerOnClickForm} data-testid="search-component">
       <Container>
-        <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} data-testid='search-input' />
-        <SearchButton $isFocused={document.activeElement === inputRef.current} data-testid='search-button'>
+        <Input value={title} onChange={handlerOnChange} onFocus={handlerOnFocus} ref={inputRef} data-testid="search-input" />
+        <SearchButton $isFocused={document.activeElement === inputRef.current} data-testid="search-button">
           <SearchIcon fill="var(--text-color)" />
         </SearchButton>
       </Container>
-      <ElasticSearch $visible={searchCondition} $isLoading={isFetching} data-testid='search-menu'>
+      <ElasticSearch $visible={searchCondition} $isLoading={isFetching} data-testid="search-menu">
         {fetchingCondition && <Spinner />}
 
         {moviesCondition &&
@@ -91,7 +91,7 @@ export const Search: FC = () => {
               <Movie onClick={(e: MouseEvent<HTMLLIElement>) => handlerOnClickMovie(e, movie.id)} key={movie.id}>
                 <Poster src={poster} alt={movie.title} />
                 <MovieData>
-                  <Title>{movie.title}</Title>
+                  <Title data-testid='search-movie-title'>{movie.title}</Title>
                   <Overview>{overview}</Overview>
                 </MovieData>
               </Movie>

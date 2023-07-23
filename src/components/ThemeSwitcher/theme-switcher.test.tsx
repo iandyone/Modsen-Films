@@ -25,7 +25,6 @@ describe('Theme swither', () => {
 
     expect(switcher).toBeInTheDocument();
     expect(toggler).toBeInTheDocument();
-
   });
 
   test('should switch the app theme', () => {

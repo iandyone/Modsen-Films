@@ -1,8 +1,9 @@
 dist
 public
 node_modules
-webpack.config.ts
 eslintrc.json
 constants
-.prettierignore
 config
+webpack.config.ts
+cypress.config.ts
+.prettierignore

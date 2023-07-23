@@ -23,7 +23,7 @@ export const TagButton: FC<ITagButton> = ({ tag }) => {
   }
 
   return (
-    <Button $options={buttonOptions} $isButtonActive={isButtonActive} onClick={handlerOnClick} data-testid='genre-button'>
+    <Button $options={buttonOptions} $isButtonActive={isButtonActive} onClick={handlerOnClick} data-testid="genre-button">
       {tag.toLocaleLowerCase()}
     </Button>
   );

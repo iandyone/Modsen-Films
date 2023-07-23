@@ -36,27 +36,27 @@ export const Footer: FC = () => {
         <Body>
           <Content>
             <Column>
-              <Link>Terms Privacy Policy & Safety</Link>
-              <Link>How YouTube works</Link>
-              <Link>Test new features</Link>
+              <Link data-testid='footer-link'>Terms Privacy Policy & Safety</Link>
+              <Link data-testid='footer-link'>How YouTube works</Link>
+              <Link data-testid='footer-link'>Test new features</Link>
             </Column>
             <Column>
-              <Link>About Press Copyright</Link>
-              <Link>Contact us Creators</Link>
-              <Link>Advertise Developers</Link>
+              <Link data-testid='footer-link'>About Press Copyright</Link>
+              <Link data-testid='footer-link'>Contact us Creators</Link>
+              <Link data-testid='footer-link'>Advertise Developers</Link>
             </Column>
           </Content>
           <Links>
             {Array.from(mediaData).map((media) => (
               <li key={media.name}>
                 <Media href={media.url}>
-                  <media.icon fill={'var(--footer-svg)'} />
+                  <media.icon fill={'var(--footer-svg)'} data-testid='footer-media'/>
                 </Media>
               </li>
             ))}
           </Links>
         </Body>
-        <About>2023 Modsen company</About>
+        <About data-testid='footer-about'>2023 Modsen company</About>
       </AppContainer>
     </FooterElement>
   );

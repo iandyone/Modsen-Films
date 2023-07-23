@@ -87,7 +87,7 @@ export const CloseButton = styled.button<{ $isVisible: boolean }>`
       }
 
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
         transition: var(--transition);
       }
 
