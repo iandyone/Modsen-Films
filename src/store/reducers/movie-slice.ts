@@ -50,4 +50,5 @@ const movieSlice = createSlice({
 });
 
 export default movieSlice.reducer;
-export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters, setFilter, setMovieID } = movieSlice.actions;
+export const { setSearchTag, setMoviesPage, addMovies, setSearchTitle, setTitle, clearMovies, clearFilters, setFilter, setMovieID } =
+  movieSlice.actions;

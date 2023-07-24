@@ -1,7 +1,8 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 const baseUrl = 'https://api.themoviedb.org/3';
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTBiMzM5NGUxOGZmZjQwZThiZGExMjVkZjlkZmNhMCIsInN1YiI6IjY0YWJhYzg0NmEzNDQ4MDEwYjcxMDc1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2-9apDAnB9If9OEtvOWFYg5y0dlDK-pb-JbNb7a8mWQ';
+const token =
+  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTBiMzM5NGUxOGZmZjQwZThiZGExMjVkZjlkZmNhMCIsInN1YiI6IjY0YWJhYzg0NmEzNDQ4MDEwYjcxMDc1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2-9apDAnB9If9OEtvOWFYg5y0dlDK-pb-JbNb7a8mWQ';
 
 const $axios = axios.create({
   baseURL: baseUrl,

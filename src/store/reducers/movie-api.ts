@@ -1,5 +1,13 @@
 import { axiosBaseQuery } from '@config/axios';
-import { IFindMovieByGenreParams, IFindMovieByTitleParams, IGetMovieParams, IGetVideoParams, IMovieResponce, IVideoResponse, Languages } from '@constants/types';
+import {
+  IFindMovieByGenreParams,
+  IFindMovieByTitleParams,
+  IGetMovieParams,
+  IGetVideoParams,
+  IMovieResponce,
+  IVideoResponse,
+  Languages,
+} from '@constants/types';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
 export const movieApi = createApi({

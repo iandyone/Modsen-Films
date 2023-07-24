@@ -33,7 +33,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
 
   if (isLoading) {
     return (
-      <MovieCardElement onClick={handlerOnClick} $isLoading={isLoading} data-testid="movie-loader">
+      <MovieCardElement onClick={handlerOnClick} $isLoading={isLoading} data-testid="movie-card">
         <PosterLoader>
           <AvatarLoader />
           <ContentLoader />

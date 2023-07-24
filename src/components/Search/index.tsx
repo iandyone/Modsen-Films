@@ -1,7 +1,29 @@
 import { useDispatchTyped, useSelectorTyped } from '@utils/hooks/redux-hooks';
 import { ChangeEvent, FC, FormEvent, MouseEvent, useRef } from 'react';
-import { clearFilters, clearMovies, setFilter, setMovieID, setMoviesPage, setSearchTag, setSearchTitle, setTitle } from '@store/reducers/movie-slice';
-import { Container, Counter, ElasticSearch, Input, Movie, MovieData, Overview, Poster, SearchButton, SearchForm, Spinner, Title } from './styled';
+import {
+  clearFilters,
+  clearMovies,
+  setFilter,
+  setMovieID,
+  setMoviesPage,
+  setSearchTag,
+  setSearchTitle,
+  setTitle,
+} from '@store/reducers/movie-slice';
+import {
+  Container,
+  Counter,
+  ElasticSearch,
+  Input,
+  Movie,
+  MovieData,
+  Overview,
+  Poster,
+  SearchButton,
+  SearchForm,
+  Spinner,
+  Title,
+} from './styled';
 import { useFindMoviesByTitleQuery } from '@store/reducers/movie-api';
 import { setModalMenu, setSearchMenu } from '@store/reducers/app-slice';
 import { useDebounce } from '@utils/hooks/useDebounce';
@@ -91,7 +113,7 @@ export const Search: FC = () => {
               <Movie onClick={(e: MouseEvent<HTMLLIElement>) => handlerOnClickMovie(e, movie.id)} key={movie.id}>
                 <Poster src={poster} alt={movie.title} />
                 <MovieData>
-                  <Title data-testid='search-movie-title'>{movie.title}</Title>
+                  <Title data-testid="search-movie-title">{movie.title}</Title>
                   <Overview>{overview}</Overview>
                 </MovieData>
               </Movie>

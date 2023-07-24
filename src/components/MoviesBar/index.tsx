@@ -11,9 +11,22 @@ export const MovieBar: FC = () => {
   const { filmsPerPage } = useSelectorTyped((store) => store.app);
   const { moviesPage, movies, searchByTitle, searchByTag, filter } = useSelectorTyped((store) => store.movies);
   const { skipBase, skipTitle, skipGenre } = getFetchSkipConditions();
-  const { data: moviesCatalog, isFetching: isFetchingCatalog, isSuccess: isSuccessCatalog, error } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
-  const { data: moviesByTitle, isFetching: isFetchingByTitle, isSuccess: isSuccessByTitle } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: skipTitle });
-  const { data: moviesByGenre, isFetching: isFetchingByGenre, isSuccess: isSuccessByGenre } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenreTags[searchByTag] }, { skip: skipGenre });
+  const {
+    data: moviesCatalog,
+    isFetching: isFetchingCatalog,
+    isSuccess: isSuccessCatalog,
+    error,
+  } = useGetMoviesQuery({ page: moviesPage }, { skip: skipBase });
+  const {
+    data: moviesByTitle,
+    isFetching: isFetchingByTitle,
+    isSuccess: isSuccessByTitle,
+  } = useFindMoviesByTitleQuery({ page: moviesPage, query: searchByTitle }, { skip: skipTitle });
+  const {
+    data: moviesByGenre,
+    isFetching: isFetchingByGenre,
+    isSuccess: isSuccessByGenre,
+  } = useFindMoviesByGenreQuery({ page: moviesPage, genre: MovieGenreTags[searchByTag] }, { skip: skipGenre });
   const [isNextPage, setIsNextPage] = useState(true);
 
   const dispatch = useDispatchTyped();
@@ -51,7 +64,9 @@ export const MovieBar: FC = () => {
   return (
     <MovieBarElement data-testid="movies-bar">
       <AppContainer>
-        {error && error.code === 'ERR_NETWORK' && <ErrorState message="Unable to load movies.Please try to turning VPN on and update the page" />}
+        {error && error.code === 'ERR_NETWORK' && (
+          <ErrorState message="Unable to load movies.Please try to turning VPN on and update the page" />
+        )}
 
         {!error && movies.length === 0 && !isLoader && <ErrorState message="There is no movies" />}
         <Body>
