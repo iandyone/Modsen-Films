@@ -24,9 +24,9 @@ export const AppContainer = styled.div`
 
 export const Body = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(100px, 332px));
-  justify-content: center;
-  column-gap: 10px;
+  grid-template-columns: repeat(4, minmax(100px, 340px));
+  justify-content: space-between;
+  column-gap: 20px;
   row-gap: 30px;
   margin-bottom: 38px;
   width: 100%;

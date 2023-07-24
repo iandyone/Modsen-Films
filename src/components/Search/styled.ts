@@ -25,7 +25,7 @@ export const Input = styled.input.attrs({
   }
 
   &::-webkit-input-placeholder {
-    color: var(--border-color);
+    color: var(--input-placeholder);
   }
 
   @media (max-width: 992px) {

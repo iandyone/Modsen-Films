@@ -1,19 +1,24 @@
 :root {
-  --font-family: 'Roboto', 'Arial';
+  --font-family: "Roboto", "Arial";
   --font-size-s: 14px;
   --font-size-m: 16px;
   --font-size-l: 18px;
 
-  --black: #000000;
   --white: #fff;
-  --dark: #2e3130;
+  --black: #000000;
+  --black2: #0000001a;
+  --dark: #141414;
   --dark2: #3b3b3b;
   --dark3: #272727;
+  --dark4: #383838;
   --orange: #ff8a00;
   --gray: #c4c4c4;
   --gray2: #0000000f;
   --gray3: rgba(0, 0, 0, 0.83);
   --gray4: rgba(0, 0, 0, 0.08);
+  --gray5: #ededed;
+  --gray6: #7d7d7d;
+  --gray7: #8c8c8c;
   --gray-svg: #6d6e76;
 
   --transition: all 0.3s ease;
@@ -28,20 +33,29 @@
   --input-color: var(--white);
   --main-color: var(--orange);
   --input-bg: var(--white);
+  --input-placeholder: var(--gray6);
   --shadow-color: var(--gray4);
 
   --tag-button-text: var(--black);
   --tag-button-bg: var(--gray2);
   --tag-button-text-active: var(--white);
   --tag-button-bg-active: var(--black);
+  --tag-button-border: var(--black2);
+  
 
   --button-bg: var(--orange);
   --button-hover-bg: var(--gray);
 
   --burger-bg: var(--white);
 
-  --skeleton-main: #dddbdd;
-  --skeleton-shimer: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  --skeleton-main: var(--gray5);
+  --skeleton-shimer: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
   --footer-company: var(--gray);
   --footer-text: var(--gray3);
   --footer-svg: var(--gray-svg);
@@ -50,25 +64,35 @@
 .app.dark {
   --bg-color: var(--dark);
   --text-color: var(--white);
-  --border-color: var(--gray);
+  --border-color: var(--dark4);
   --input-color: var(--white);
   --main-color: var(--white);
   --input-bg: var(--dark);
+  --input-placeholder: var(--gray7);
   --shadow-color: var(--gray4);
+  --switcher-color: var(--orange);
+
 
   --tag-button-text: var(--white);
   --tag-button-bg: var(--dark3);
   --tag-button-text-active: var(--black);
   --tag-button-bg-active: var(--white);
+  --tag-button-border: var(--dark4);
 
   --button-bg: var(--orange);
-  --button-hover-bg: var(--gray);
+  --button-hover-bg: var(--dark4);
 
   --burger-bg: var(--dark);
 
   --skeleton-main: var(--dark2);
-  --skeleton-shimer: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
-  --footer-company: var(--white);
-  --footer-text: var(--white);
-  --footer-svg: var(--white);
+  --skeleton-shimer: linear-gradient(
+    90deg,
+    rgba(20, 20, 20, 0) 0,
+    rgba(20, 20, 20, 0.2) 20%,
+    rgba(20, 20, 20, 0.5) 60%,
+    rgba(20, 20, 20, 0)
+  );
+  --footer-company: var(--gray6);
+  --footer-text: var(--gray5);
+  --footer-svg: var(--gray-svg);
 }

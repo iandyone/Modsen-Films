@@ -10,7 +10,7 @@ export const Button = styled.button<{
   justify-content: center;
   height: 30px;
   border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--tag-button-border);
   padding: 6px 15px;
   min-width: 52px;
   font-size: var(--font-size-s);

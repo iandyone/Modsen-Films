@@ -27,7 +27,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
 
   function getMovieGenres() {
     if (movieData.genre_ids) {
-      return movieData.genre_ids.map((genreID) => MovieGenres[genreID].toLocaleLowerCase()).join(' ∘ ');
+      return movieData.genre_ids.map((genreID) => MovieGenres[genreID].toLocaleLowerCase()).join(' • ');
     }
   }
 
@@ -51,7 +51,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, isLoading }) => {
         <Description>
           <Title data-testid="movie-title">{title}</Title>
           <Text data-testid="movie-text">
-            {releaseDate} {movieGenres}
+            {releaseDate}, {movieGenres}
           </Text>
         </Description>
       </Content>

@@ -30,7 +30,7 @@ const Modal: FC = () => {
   }, [data, movieID]);
 
   useEffect(() => {
-    document.body.style.overflowY = isModalOpened ? 'hidden' : 'auto';
+    document.body.style.position = isModalOpened ? 'fixed' : 'static';
   }, [isModalOpened]);
 
   return (

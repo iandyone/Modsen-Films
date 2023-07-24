@@ -1,9 +1,7 @@
 import { styled, css } from 'styled-components';
-// import '@styles/keyframes.scss';
 
 export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
   transition: var(--transition);
-  padding: 0 4px;
 
   ${({ $isLoading }) =>
     !$isLoading &&
@@ -19,10 +17,12 @@ export const MovieCardElement = styled.div<{ $isLoading?: boolean }>`
   ${({ $isLoading }) =>
     $isLoading &&
     css`
-      position: relative;
-      min-height: 200px;
-      overflow: hidden;
-      background-color: var(--skeleton-main);
+    transition: var(--transition);
+    position: relative;
+    padding-bottom: 84.25%;
+    overflow: hidden;
+    max-width: calc(16 / 9 * 100vh);
+
       &::after {
         content: '';
         position: absolute;
@@ -60,7 +60,7 @@ export const Poster = styled.img.attrs(({ src }) => ({
 export const Content = styled.div`
   padding: 12px 0px 24px;
   display: flex;
-  column-gap: 12px;
+  column-gap: 14px;
 `;
 
 export const Avatar = styled.img.attrs((props) => ({
@@ -100,22 +100,38 @@ export const Text = styled.p`
 `;
 
 export const PosterLoader = styled.div`
-  max-height: 285px;
+  max-height: 186px;
+  height: 66%;
   position: absolute;
   right: 0;
   left: 0;
-  bottom: 36%;
   top: 0;
-  background: var(--gray);
+  background: var(--skeleton-main);
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 800px) {
-    bottom: 45%;
+  @media (max-width: 1200px) {
+    height: 60%;
   }
 
-  @media (max-width: 700px) {
-    bottom: 35%;
+  @media (max-width: 1050px) {
+    height: 55%;
+  }
+
+  @media (max-width: 992px) {
+    height: 66%;
+  }
+
+  @media (max-width: 850px) {
+    height: 61%;
+  }
+
+  @media (max-width: 850px) {
+    height: 56%;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 53.25%;
   }
 `;
 
@@ -123,17 +139,17 @@ export const AvatarLoader = styled.div`
   width: 36px;
   height: 36px;
   position: absolute;
-  left: 4px;
   bottom: -50px;
   border-radius: 50%;
-  background: var(--gray);
+  background: var(--skeleton-main);
 `;
 
 export const ContentLoader = styled.div`
-  right: 10px;
+  right: 0px;
+  left: 48px;
   height: 14px;
-  width: 72%;
-  background: var(--gray);
+  width: 100%;
+  background: var(--skeleton-main);
   position: absolute;
   bottom: -30px;
 

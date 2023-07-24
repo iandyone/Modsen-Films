@@ -17,7 +17,7 @@ export const Menu: FC = () => {
   }
 
   useEffect(() => {
-    document.body.style.overflowY = isBurgerOpened ? 'hidden' : 'auto';
+    document.body.style.position = isBurgerOpened ? 'fixed' : 'static';
   }, [isBurgerOpened]);
 
   return (

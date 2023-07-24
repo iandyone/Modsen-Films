@@ -3,11 +3,14 @@ chai.use(chaiColors);
 
 describe('Theme switcher module', () => {
   const colors = {
-    dark: '#2e3130',
+    dark: '#141414',
     dark3: '#272727',
+    dark4: '#383838',
     black: '#000000',
     white: '#fff',
     gray: '#c4c4c4',
+    gray5: '#ededed',
+    gray6: '#7d7d7d',
     orange: '#ff8a00',
     'gray-svg': '#6d6e76',
   };
@@ -43,7 +46,7 @@ describe('Theme switcher module', () => {
 
     // search-input
     cy.get('@input').should('have.css', 'background-color').and('be.colored', `${colors.dark}`);
-    cy.get('@input').should('have.css', 'border-color').and('be.colored', `${colors.gray}`);
+    cy.get('@input').should('have.css', 'border-color').and('be.colored', `${colors.dark4}`);
 
     // search button
     cy.get('@search-button').should('have.css', 'background-color').and('be.colored', `${colors.dark}`);
@@ -58,9 +61,9 @@ describe('Theme switcher module', () => {
     cy.get('@movie-text').should('have.css', 'color').and('be.colored', `${colors.white}`);
 
     // footer links
-    cy.get('@footer-link').should('have.css', 'color').and('be.colored', `${colors.white}`);
-    cy.get('@footer-media').should('have.css', 'fill').and('be.colored', `${colors.white}`);
-    cy.get('[data-testid=footer-about]').should('have.css', 'color').and('be.colored', `${colors.white}`);
+    cy.get('@footer-link').should('have.css', 'color').and('be.colored', `${colors.gray5}`);
+    cy.get('@footer-media').should('have.css', 'fill').and('be.colored', `${colors['gray-svg']}`);
+    cy.get('[data-testid=footer-about]').should('have.css', 'color').and('be.colored', `${colors.gray6}`);
 
     // switch to the light theme
     cy.get('@switcher').first().click();

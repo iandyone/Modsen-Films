@@ -23,6 +23,6 @@ export const Toggler = styled.div<{ theme: Theme }>`
   position: absolute;
   left: -2px;
   top: -1px;
-  transform: translateX(${(props) => (props.theme === 'light' ? '0px' : '24px')});
+  transform: translateX(${({ theme }) => (theme === 'light' ? '0px' : '24px')});
   transition: transform 0.2s ease;
 `;
