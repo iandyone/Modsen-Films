@@ -15,7 +15,7 @@ export const ErrorState: FC<IErrorState> = ({ message, withReloadingButton = fal
   return (
     <Container>
       <ErrorIcon />
-      <Text data-testid="error-text">{message}</Text>
+      <Text data-testid='error-text'>{message}</Text>
       {withReloadingButton && <Button onClick={handlerOnClick}>Update</Button>}
     </Container>
   );

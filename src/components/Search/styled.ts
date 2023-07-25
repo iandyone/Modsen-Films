@@ -1,5 +1,4 @@
 import { styled, css } from 'styled-components';
-// import '@styles/keyframes.scss';
 
 export const Input = styled.input.attrs({
   placeholder: 'Search',

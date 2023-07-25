@@ -5,7 +5,7 @@ import { IGenre, MovieGenreTags } from '@constants/types';
 
 export const Navbar: FC = () => {
   return (
-    <Nav data-testid="navbar-element">
+    <Nav data-testid='navbar-element'>
       <AppContainer>
         <NavElement>
           {Object.keys(MovieGenreTags)

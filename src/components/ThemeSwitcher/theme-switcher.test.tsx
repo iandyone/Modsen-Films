@@ -15,7 +15,7 @@ describe('Theme swither', () => {
   test('should be rendered on the page', () => {
     render(
       <Provider store={store}>
-        <div className="app light">
+        <div className='app light'>
           <ThemeSwitcher />
         </div>
       </Provider>,
@@ -30,7 +30,7 @@ describe('Theme swither', () => {
   test('should switch the app theme', () => {
     render(
       <Provider store={store}>
-        <div className="app light">
+        <div className='app light'>
           <ThemeSwitcher />
         </div>
       </Provider>,
@@ -73,7 +73,7 @@ describe('Theme swither', () => {
 
     render(
       <Provider store={store}>
-        <div className="app light">
+        <div className='app light'>
           <ThemeSwitcher />
         </div>
       </Provider>,

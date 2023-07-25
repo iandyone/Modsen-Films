@@ -7,5 +7,6 @@
   "bracketSameLine": true,
   "arrowParens": "always",
   "endOfLine": "crlf",
-  "printWidth": 145
+  "printWidth": 145,
+  "jsxSingleQuote": true
 }

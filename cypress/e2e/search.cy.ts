@@ -22,7 +22,7 @@ describe('Search module', () => {
     cy.get('@switcher').click();
   });
 
-  it('should change value after typing', () => {
+  it('should change the input value after typing', () => {
     cy.get('[data-testid=search-input]').click().type('Interstellar').should('have.value', 'Interstellar');
   });
 
@@ -55,7 +55,7 @@ describe('Search module', () => {
       });
   });
 
-  it('should open the modal witch movie trailer after clicking on movie search result', () => {
+  it('should open the modal with movie trailer after clicking on movie search result', () => {
     cy.get('[data-testid=search-movie-title]').first().click();
     cy.get('[data-testid=search-menu]').should('not.be.visible');
     cy.get('[data-testid=modal]').should('be.visible');

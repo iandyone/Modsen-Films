@@ -7,7 +7,7 @@ describe('Movies Bar module', () => {
     cy.get('[data-testid=show-more-button').should('be.visible');
   });
 
-  it('should display movie data in movie cards', () => {
+  it('should display the movie data in movie cards', () => {
     cy.get('[data-testid=movie-poster').should('be.visible').should('have.length', 20);
     cy.get('[data-testid=movie-avatar').should('be.visible').should('have.length', 20);
     cy.get('[data-testid=movie-title').should('be.visible').should('have.length', 20);

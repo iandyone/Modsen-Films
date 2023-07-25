@@ -62,13 +62,13 @@ export const MovieBar: FC = () => {
   }, [moviesByTitle, moviesByGenre, moviesCatalog, dispatch, filter]);
 
   return (
-    <MovieBarElement data-testid="movies-bar">
+    <MovieBarElement data-testid='movies-bar'>
       <AppContainer>
         {error && error.code === 'ERR_NETWORK' && (
-          <ErrorState message="Unable to load movies.Please try to turning VPN on and update the page" />
+          <ErrorState message='Unable to load movies.Please try to turning VPN on and update the page' />
         )}
 
-        {!error && movies.length === 0 && !isLoader && <ErrorState message="There is no movies" />}
+        {!error && movies.length === 0 && !isLoader && <ErrorState message='There is no movies' />}
         <Body>
           {movies.map((movie) => {
             return <MovieCard key={movie.id} isLoading={false} movieData={movie} />;
@@ -79,7 +79,7 @@ export const MovieBar: FC = () => {
               return <MovieCard key={index} isLoading={isLoader} movieData={movie} />;
             })}
         </Body>
-        <Button onClick={handlerOnClick} $isNextPage={isNextPage && movies.length !== 0} data-testid="show-more-button">
+        <Button onClick={handlerOnClick} $isNextPage={isNextPage && movies.length !== 0} data-testid='show-more-button'>
           Show More
         </Button>
       </AppContainer>

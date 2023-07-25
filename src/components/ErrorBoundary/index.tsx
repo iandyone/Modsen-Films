@@ -31,8 +31,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     if (hasError) {
       // TODO: сделать error page
       return (
-        <Suspense fallback="">
-          <ErrorState message="Unexpected error while the application is running" withReloadingButton={true} />
+        <Suspense fallback=''>
+          <ErrorState message='Unexpected error while the application is running' withReloadingButton={true} />
         </Suspense>
       );
     }

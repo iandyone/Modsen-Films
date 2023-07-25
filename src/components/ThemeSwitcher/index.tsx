@@ -14,8 +14,8 @@ export const ThemeSwitcher: FC = () => {
   }
 
   return (
-    <Switcher onClick={handlerOnClick} data-testid="theme-switcher">
-      <Toggler theme={theme} data-testid="theme-toggler" />
+    <Switcher onClick={handlerOnClick} data-testid='theme-switcher'>
+      <Toggler theme={theme} data-testid='theme-toggler' />
     </Switcher>
   );
 };
